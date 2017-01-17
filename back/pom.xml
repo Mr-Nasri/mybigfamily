@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>fr.unice.polytech.semanticweb</groupId>
+  <artifactId>familytree</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>familytree Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Configure the main class of our Spring Boot application -->
+    <start-class>launcher.Application</start-class>
+  </properties>
+         
+<!-- Inherit defaults from Spring Boot -->
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.4.3.RELEASE</version>
+</parent>
+ 
+<dependencies>
+    <!-- Get the dependencies of a web application -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+	    <groupId>javax.ws.rs</groupId>
+	    <artifactId>jsr311-api</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
+	
+	<!-- tools for dev -->
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.jena/jena-core -->
+	<dependency>
+	    <groupId>org.apache.jena</groupId>
+	    <artifactId>jena-core</artifactId>
+	    <version>3.1.1</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.jena/jena-arq -->
+	<dependency>
+	    <groupId>org.apache.jena</groupId>
+	    <artifactId>jena-arq</artifactId>
+	    <version>3.1.1</version>
+	</dependency>
+</dependencies>
+ 
+<build>
+    <plugins>
+        <!-- Spring Boot Maven Support -->
+        <plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.3</version>
+	        <configuration>
+	          <source>1.8</source>
+	          <target>1.8</target>
+	        </configuration>
+		</plugin>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+</project>
