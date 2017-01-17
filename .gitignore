@@ -4,13 +4,16 @@ back/.project
 back/.settings/
 
 # Intellij
-.idea/
-*.iml
-*.iws
+back/.idea/
+back/*.iml
+back/*.iws
 
 # Mac
 .DS_Store
 
 # Maven
-log/
-target/
+back/log/
+back/target/
+
+#Angular
+front/node_modules/
