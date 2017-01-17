@@ -1,7 +1,7 @@
 # Eclipse
-./back/.classpath
-./back/.project
-./back/.settings/
+back/.classpath
+back/.project
+back/.settings/
 
 # Intellij
 .idea/
