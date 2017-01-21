@@ -56,8 +56,8 @@ public class TestService {
     	
     	// add the property
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
-    	creatorResource.addProperty(RdfsModel.hasFistName, "achraf");
-    	creatorResource.addProperty(RdfsModel.hasLastName, "nasri");
+    	creatorResource.addProperty(RdfsModel.hasFistName, creator);
+    	creatorResource.addProperty(RdfsModel.hasLastName, "name");
     	model.write(System.out);
     }
 }

@@ -1,17 +1,31 @@
 package model;
 
+import java.util.Calendar;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import config.CustomerDateAndTimeDeserialize;
+
+
 public class Person {
+	private enum Gender {M, F};
+	private enum Relation {child, parent, sibling, spouse};
+	
 	private String firstName;
 	private String lastName;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
 	private Date birthDate;
 	private String city;
 	private String profession;
 	private String phone;
 	private String email;
-	private String gender;
-	private Enum relation;
+	private Gender gender;
+	private Relation relation;
+	private Person relative;
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -55,10 +69,28 @@ public class Person {
 		this.email = email;
 	}
 	public String getGender() {
-		return gender;
+		if(gender != null)
+			return gender.name();
+		else
+			return null;
 	}
 	public void setGender(String gender) {
-		this.gender = gender;
+		this.gender = Gender.valueOf(gender);
+	}
+	public String getRelation() {
+		if(gender != null)
+			return relation.name();
+		else
+			return null;
+	}
+	public void setRelation(String relation) {
+		this.relation = Relation.valueOf(relation);
+	}
+	public Person getRelative() {
+		return relative;
+	}
+	public void setRelative(Person relative) {
+		this.relative = relative;
 	}
 	
 	

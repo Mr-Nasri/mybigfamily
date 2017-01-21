@@ -4,13 +4,18 @@
     <title>Angular QuickStart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="styles.css">
+
 
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
 
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js" ></script>
 
     <script src="systemjs.config.js"></script>
     <script>
@@ -19,6 +24,9 @@
   </head>
 
   <body>
-    <my-app>Loading AppComponent content here ...</my-app>
+
+    <my-app>
+      Loading AppComponent content here ...
+    </my-app>
   </body>
 </html>

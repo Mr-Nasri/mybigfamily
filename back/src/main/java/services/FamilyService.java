@@ -8,7 +8,9 @@ import javax.ws.rs.core.MediaType;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
+import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,16 +22,18 @@ import model.Person;
 import model.RdfsModel;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @EnableAutoConfiguration
 @RequestMapping(value="/family")
 public class FamilyService {
 
-	@RequestMapping(value="/create", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+	@RequestMapping(value="/create", method= RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
     public String testFramework(@RequestBody Family family) {
-
+		System.out.println("GOT IT");
     	String familyID = UUID.randomUUID().toString();
     	String familyURI = "http://familytree/" + familyID;
 
+    	family.setId(familyID);
     	Model model = RdfsModel.getModel();
 
     	// create the resource
@@ -37,6 +41,7 @@ public class FamilyService {
     	Resource creatorResource = RdfsModel.addMember(family.getCreator());
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
     	familyResource.addProperty(RdfsModel.hasId, familyID);
+    	familyResource.addProperty(RdfsModel.hasName, family.getName());
     	
     	model.write(System.out);
     	

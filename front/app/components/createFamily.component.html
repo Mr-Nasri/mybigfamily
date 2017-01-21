@@ -1,0 +1,74 @@
+<h1>Create Family</h1>
+<form (ngSubmit)="onSubmit($event)" #form="ngForm">
+    <div class="form-group">
+        <label for="familyName">family Name</label>
+        <input type="text" class="form-control" id="familyName"
+               required
+               [(ngModel)]="familyName" name="familyName"
+               #firstName="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="creator.firstName" name="name"
+               #firstName="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName"
+               required
+               [(ngModel)]="creator.lastName" name="lastName"
+               #lastName="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender"
+                [(ngModel)]="creator.gender" name="gender"
+                #gender="ngModel" >
+            <option *ngFor="let g of genderValues" [value]="g">{{g}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="birthDate">Birthdate</label>
+        <input class="form-control" id="birthDate"
+               [(ngModel)]="creator.birthDate" name="birthDate"
+               #birthDate="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="city">Live in</label>
+        <input class="form-control" id="city"
+               [(ngModel)]="creator.city" name="city"
+               #city="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="profession">Profession</label>
+        <input class="form-control" id="profession"
+               [(ngModel)]="creator.profession" name="profession"
+               #profession="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input class="form-control" id="phone"
+               [(ngModel)]="creator.phone" name="phone"
+               #phone="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email"
+               [(ngModel)]="creator.email" name="email"
+               #email="ngModel" >
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <span *ngIf="familyId"> Family successfuly created, your familyId is : {{familyId}}  </span>
+</form>

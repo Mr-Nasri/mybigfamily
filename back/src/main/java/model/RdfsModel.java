@@ -24,6 +24,7 @@ public class RdfsModel {
 	//***************************************************
 	public static Property hasId;
 	public static OntProperty hasCreator;
+	public static OntProperty hasName;
 	
 	
 	//************* PROPERTIES FOR MEMBER ***************
@@ -31,7 +32,7 @@ public class RdfsModel {
 	public static OntProperty hasFistName;
 	public static OntProperty hasLastName;
 	public static OntProperty hasBirthDate;
-	public static OntProperty hasAddress;
+	public static OntProperty liveIn;
 	public static OntProperty hasProfession;
 	public static OntProperty hasPhone;
 	public static OntProperty hasEmail;
@@ -47,16 +48,15 @@ public class RdfsModel {
 
 		OntClass family = model.createClass( FAMILY_NAMESPACE + "Family" );
 		OntClass member = model.createClass( MEMBER_NAMESPACE + "Member" );
-		//Ontology o = model.createOntology(FAMILY_NAMESPACE);
-		//family.add
-		
+
 		hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
+		hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
 		//hasCreator.addRange(res);
 		hasId = model.createProperty(MEMBER_NAMESPACE, "hasId");
 		hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
     	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
     	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
-    	hasAddress = model.createObjectProperty(MEMBER_NAMESPACE + "hasAddress");
+    	liveIn = model.createObjectProperty(MEMBER_NAMESPACE + "liveIn");
     	hasProfession = model.createObjectProperty(MEMBER_NAMESPACE + "hasProfession");
     	hasPhone = model.createObjectProperty(MEMBER_NAMESPACE + "hasPhone");
     	hasEmail = model.createObjectProperty(MEMBER_NAMESPACE + "hasEmail");
@@ -81,9 +81,30 @@ public class RdfsModel {
 	public static Resource addMember(Person member) {
 		String memberURI = "http://familytree/person/" + member.getFirstName() + member.getLastName();
 		Resource memberResource = model.createResource(memberURI);
-		
-		memberResource.addProperty(hasFistName, "achraf");
-		memberResource.addProperty(hasLastName, "nasri");
+		if(member.getFirstName() != null && !member.getFirstName().equals("")){
+			memberResource.addProperty(hasFistName, member.getFirstName());
+		}
+		if(member.getLastName() != null && !member.getLastName().equals("")){
+			memberResource.addProperty(hasLastName, member.getLastName());
+		}
+		if(member.getBirthDate() != null){
+			memberResource.addProperty(hasBirthDate, member.getBirthDate().toString());
+		}
+		if(member.getCity() != null && !member.getCity().equals("")){
+			memberResource.addProperty(liveIn, member.getCity());
+		}
+		if(member.getProfession() != null && !member.getProfession().equals("")){
+			memberResource.addProperty(hasProfession, member.getProfession());
+		}
+		if(member.getPhone() != null && !member.getPhone().equals("")){
+			memberResource.addProperty(hasPhone, member.getPhone());
+		}
+		if(member.getEmail() != null && !member.getEmail().equals("")){
+			memberResource.addProperty(hasEmail, member.getEmail());
+		}
+		if(member.getGender() != null && !member.getGender().equals("")){
+			memberResource.addProperty(hasGender, member.getGender());
+		}
 		return memberResource;
 	}
 	
