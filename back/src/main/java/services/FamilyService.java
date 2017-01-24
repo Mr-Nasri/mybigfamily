@@ -38,12 +38,14 @@ public class FamilyService {
 
     	// create the resource
     	Resource familyResource = model.createResource(familyURI);
-    	Resource creatorResource = RdfsModel.addMember(family.getCreator());
+    	Resource creatorResource = RdfsModel.createMember(family.getCreator());
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
     	familyResource.addProperty(RdfsModel.hasId, familyID);
     	familyResource.addProperty(RdfsModel.hasName, family.getName());
     	
-    	model.write(System.out);
+    	RdfsModel.insertData();
+    	//model.write(System.out);
+    	
     	
     	return familyID;
     }

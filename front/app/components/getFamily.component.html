@@ -1,0 +1,13 @@
+<h1>GET Family</h1>
+<form (ngSubmit)="onSubmit($event)" #form="ngForm">
+    <div class="form-group">
+        <label for="familyId">family Id</label>
+        <input type="text" class="form-control" id="familyId"
+               required
+               [(ngModel)]="familyId" name="familyId"
+               #familyId="ngModel" >
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+</form>

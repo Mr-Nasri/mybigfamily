@@ -1,5 +1,10 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -12,6 +17,7 @@ import org.apache.jena.rdf.model.Resource;
 
 public class RdfsModel {
 
+	private static final String DATA_FILE = "data/family.rdf";
 	private static final String FAMILY_NAMESPACE = "http://familytree/ns/";
 	private static final String MEMBER_NAMESPACE = "http://familytree/member/ns/";
 	
@@ -44,41 +50,47 @@ public class RdfsModel {
 	public static OntProperty hasSpouse;
 
 	static {
-		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
+		File f = new File(DATA_FILE);
+		
+		if(f.exists() && !f.isDirectory() && f.length() != 0) { 
+			model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
+			model.read(f.getAbsolutePath(), "RDF/XML");
+		}
+		else{
+			model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
 
-		OntClass family = model.createClass( FAMILY_NAMESPACE + "Family" );
-		OntClass member = model.createClass( MEMBER_NAMESPACE + "Member" );
+			OntClass family = model.createClass( FAMILY_NAMESPACE + "Family" );
+			OntClass member = model.createClass( MEMBER_NAMESPACE + "Member" );
 
-		hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
-		hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
-		//hasCreator.addRange(res);
-		hasId = model.createProperty(MEMBER_NAMESPACE, "hasId");
-		hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
-    	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
-    	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
-    	liveIn = model.createObjectProperty(MEMBER_NAMESPACE + "liveIn");
-    	hasProfession = model.createObjectProperty(MEMBER_NAMESPACE + "hasProfession");
-    	hasPhone = model.createObjectProperty(MEMBER_NAMESPACE + "hasPhone");
-    	hasEmail = model.createObjectProperty(MEMBER_NAMESPACE + "hasEmail");
-    	hasGender = model.createObjectProperty(MEMBER_NAMESPACE + "hasGender");
-    	
-    	
-    	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
-    	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
-    	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
-    	hasChild = model.createObjectProperty(MEMBER_NAMESPACE + "hasChild");
-    	
-    	hasParent.setInverseOf(hasChild);
-    	hasSibling.setInverseOf(hasSibling);
-    	
-
+			hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
+			hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
+			//hasCreator.addRange(res);
+			hasId = model.createProperty(MEMBER_NAMESPACE, "hasId");
+			hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
+	    	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
+	    	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
+	    	liveIn = model.createObjectProperty(MEMBER_NAMESPACE + "liveIn");
+	    	hasProfession = model.createObjectProperty(MEMBER_NAMESPACE + "hasProfession");
+	    	hasPhone = model.createObjectProperty(MEMBER_NAMESPACE + "hasPhone");
+	    	hasEmail = model.createObjectProperty(MEMBER_NAMESPACE + "hasEmail");
+	    	hasGender = model.createObjectProperty(MEMBER_NAMESPACE + "hasGender");
+	    	
+	    	
+	    	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
+	    	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
+	    	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
+	    	hasChild = model.createObjectProperty(MEMBER_NAMESPACE + "hasChild");
+	    	
+	    	hasParent.setInverseOf(hasChild);
+	    	hasSibling.setInverseOf(hasSibling);
+		}
 	}
 	
 	public static Model getModel() {
 		return model;
 	}
 
-	public static Resource addMember(Person member) {
+	public static Resource createMember(Person member) {
 		String memberURI = "http://familytree/person/" + member.getFirstName() + member.getLastName();
 		Resource memberResource = model.createResource(memberURI);
 		if(member.getFirstName() != null && !member.getFirstName().equals("")){
@@ -106,6 +118,18 @@ public class RdfsModel {
 			memberResource.addProperty(hasGender, member.getGender());
 		}
 		return memberResource;
+	}
+	
+	public static void insertData(){
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(DATA_FILE, false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		model.write(bw);
 	}
 	
 }
