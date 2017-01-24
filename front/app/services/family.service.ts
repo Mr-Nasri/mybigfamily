@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http,Response, Headers, RequestOptions} from "@angular/http";
+import {Http, Response, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 import {Family} from "../models/Family";
 
 
@@ -13,6 +13,7 @@ export class FamilyService {
     constructor(private http: Http){}
 
     createFamilyUrl = "http://localhost:8080/family/create";
+    getFamilyUrl = "http://localhost:8080/family/get/";
 
     createFamily(family : Family): Observable<Response> {
         let body = JSON.stringify(family);
@@ -22,6 +23,14 @@ export class FamilyService {
 
         return this.http.post(this.createFamilyUrl, body, options)
             //.map(this.extractData)
+            .catch(this.handleError);
+
+    }
+
+
+    getFamily(familyId : string): Observable<Response> {
+        return this.http.get(this.getFamilyUrl + familyId)
+        //.map(this.extractData)
             .catch(this.handleError);
 
     }

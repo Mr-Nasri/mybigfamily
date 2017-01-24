@@ -11,25 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var family_service_1 = require("../services/family.service");
-var Family_1 = require("../models/Family");
 var GetFamilyComponent = (function () {
     function GetFamilyComponent(route, familyService) {
         this.route = route;
         this.familyService = familyService;
         this.familyId = '';
+        this.result = '';
     }
     GetFamilyComponent.prototype.onSubmit = function (event) {
         var _this = this;
         event.preventDefault();
-        console.log(familyId);
-        var family = new Family_1.Family();
-        family.creator = this.creator;
-        family.name = this.familyName;
-        this.familyService.createFamily(family).subscribe(function (data) { _this.familyId = data.text(); }, function (err) { console.log('Error : ' + err); });
+        console.log(this.familyId);
+        this.familyService.getFamily(this.familyId).subscribe(function (data) { _this.result = data.text(); }, function (err) { console.log('Error : ' + err); });
     };
     GetFamilyComponent = __decorate([
         core_1.Component({
-            selector: 'my-family',
+            selector: 'get-family',
             templateUrl: 'app/components/getFamily.component.html',
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, family_service_1.FamilyService])

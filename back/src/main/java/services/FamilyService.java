@@ -28,7 +28,7 @@ import model.RdfsModel;
 public class FamilyService {
 
 	@RequestMapping(value="/create", method= RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
-    public String testFramework(@RequestBody Family family) {
+    public String createFamily(@RequestBody Family family) {
 		System.out.println("GOT IT");
     	String familyID = UUID.randomUUID().toString();
     	String familyURI = "http://familytree/" + familyID;
@@ -48,6 +48,26 @@ public class FamilyService {
     	
     	
     	return familyID;
+    }
+	
+	@RequestMapping(value="/get/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public String getFamily(@PathVariable String id) {
+		String familyURI = "http://familytree/" + id;
+		System.out.println("uri :" + familyURI);
+		Model model = RdfsModel.getModel();
+		Resource r = model.createResource(familyURI);
+		System.out.println("resource" + r);
+		
+		if(model.contains(r,RdfsModel.hasId)){
+			System.out.println("yes");
+			return "yes";
+		}
+			
+		else{
+			System.out.println("no");
+			return "no";
+		}
+			
     }
 	
 	@RequestMapping(value="/auth/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)

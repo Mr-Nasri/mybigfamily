@@ -6,7 +6,7 @@ import {Member} from "../models/Member";
 import {Family} from "../models/Family";
 
 @Component({
-    selector: 'my-family',
+    selector: 'get-family',
     templateUrl: 'app/components/getFamily.component.html',
 })
 export class GetFamilyComponent  {
@@ -15,16 +15,14 @@ export class GetFamilyComponent  {
     }
 
     familyId = '';
+    result = '';
 
     onSubmit(event: Event){
         event.preventDefault();
-        console.log(familyId);
-        var family = new Family();
-        family.creator = this.creator;
-        family.name = this.familyName;
+        console.log(this.familyId);
 
-        this.familyService.createFamily(family).subscribe(
-            data => {this.familyId = data.text()},
+        this.familyService.getFamily(this.familyId).subscribe(
+            data => {this.result = data.text()},
             err => { console.log('Error : ' + err) }
         );
 
