@@ -22,15 +22,19 @@ var getFamily_component_1 = require('./components/getFamily.component');
 var about_component_1 = require('./components/about.component');
 var header_component_1 = require('./components/header.component');
 var family_service_1 = require('./services/family.service');
+var login_service_1 = require("./services/login.service");
+var addMember_component_1 = require("./components/addMember.component");
+var auth_guard_1 = require("./guards/auth.guard");
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot(app_routes_1.Routes)],
-            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, createFamily_component_1.CreateFamilyComponent, getFamily_component_1.GetFamilyComponent, about_component_1.AboutComponent, header_component_1.HeaderComponent],
+            imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot(app_routes_1.Routes)],
+            declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, createFamily_component_1.CreateFamilyComponent, getFamily_component_1.GetFamilyComponent, about_component_1.AboutComponent, header_component_1.HeaderComponent,
+                addMember_component_1.AddMemberComponent],
             bootstrap: [app_component_1.AppComponent],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, family_service_1.FamilyService]
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, family_service_1.FamilyService, login_service_1.LoginService, auth_guard_1.AuthGuard]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

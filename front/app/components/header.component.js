@@ -10,17 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var login_service_1 = require("../services/login.service");
 var HeaderComponent = (function () {
-    function HeaderComponent(route) {
+    function HeaderComponent(route, router, loginService) {
         this.route = route;
+        this.router = router;
+        this.loginService = loginService;
+        this.connectedChange = new core_1.EventEmitter();
         this.name = 'Angular';
     }
+    HeaderComponent.prototype.logout = function () {
+        this.loginService.logout();
+        this.router.navigate(['']);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', String)
+    ], HeaderComponent.prototype, "connected", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], HeaderComponent.prototype, "connectedChange", void 0);
     HeaderComponent = __decorate([
         core_1.Component({
             selector: 'header',
             templateUrl: 'app/components/header.component.html',
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router, login_service_1.LoginService])
     ], HeaderComponent);
     return HeaderComponent;
 }());
