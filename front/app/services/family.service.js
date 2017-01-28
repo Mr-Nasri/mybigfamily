@@ -18,6 +18,7 @@ var FamilyService = (function () {
         this.http = http;
         this.createFamilyUrl = "http://localhost:8080/family/create";
         this.getFamilyUrl = "http://localhost:8080/family/get/";
+        this.getMembersUrl = "http://localhost:8080/family/members/get/";
     }
     FamilyService.prototype.createFamily = function (family) {
         var body = JSON.stringify(family);
@@ -29,6 +30,10 @@ var FamilyService = (function () {
     };
     FamilyService.prototype.getFamily = function (familyId) {
         return this.http.get(this.getFamilyUrl + familyId)
+            .catch(this.handleError);
+    };
+    FamilyService.prototype.getMembers = function (familyId) {
+        return this.http.get(this.getMembersUrl + familyId)
             .catch(this.handleError);
     };
     FamilyService.prototype.extractData = function (res) {

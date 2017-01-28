@@ -1,13 +1,17 @@
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:j.0="http://familytree/member/ns/"
+    xmlns:m="http://familytree/member/ns/"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:j.1="http://familytree/ns/"
+    xmlns:f="http://familytree/ns/"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <owl:Class rdf:about="http://familytree/member/ns/Member"/>
   <owl:Class rdf:about="http://familytree/ns/Family"/>
-  <owl:ObjectProperty rdf:about="http://familytree/ns/hasCreator"/>
+  <owl:ObjectProperty rdf:about="http://familytree/ns/hasCreator">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://familytree/ns/hasMember"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasBirthDate"/>
   <owl:ObjectProperty rdf:about="http://familytree/ns/hasName"/>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasParent">
@@ -26,62 +30,36 @@
     <owl:inverseOf rdf:resource="http://familytree/member/ns/hasSibling"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasLastName"/>
-  <rdf:Description rdf:about="http://familytree/ffd80f18-7ca5-4f2d-8ef5-36c04b78fcd5">
-    <j.1:hasName>a</j.1:hasName>
-    <j.0:hasId>ffd80f18-7ca5-4f2d-8ef5-36c04b78fcd5</j.0:hasId>
-    <j.1:hasCreator>
-      <rdf:Description rdf:about="http://familytree/person/bc">
-        <j.0:hasLastName>c</j.0:hasLastName>
-        <j.0:hasFistName>b</j.0:hasFistName>
-      </rdf:Description>
-    </j.1:hasCreator>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://familytree/23b021de-40bb-4971-8937-00ec716f23e4">
-    <j.1:hasName>Msellek</j.1:hasName>
-    <j.0:hasId>23b021de-40bb-4971-8937-00ec716f23e4</j.0:hasId>
-    <j.1:hasCreator>
-      <rdf:Description rdf:about="http://familytree/person/AhmedMsellek">
-        <j.0:hasGender>M</j.0:hasGender>
-        <j.0:hasEmail>m@m.m</j.0:hasEmail>
-        <j.0:hasPhone>0234567</j.0:hasPhone>
-        <j.0:hasProfession>Student</j.0:hasProfession>
-        <j.0:liveIn>Nice</j.0:liveIn>
-        <j.0:hasBirthDate>Fri Jan 01 00:00:00 CET 1993</j.0:hasBirthDate>
-        <j.0:hasLastName>Msellek</j.0:hasLastName>
-        <j.0:hasFistName>Ahmed</j.0:hasFistName>
-      </rdf:Description>
-    </j.1:hasCreator>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://familytree/557cace5-6364-4a2b-b409-b4e5b21c8c20">
-    <j.1:hasName>Nasri</j.1:hasName>
-    <j.0:hasId>557cace5-6364-4a2b-b409-b4e5b21c8c20</j.0:hasId>
-    <j.1:hasCreator>
-      <rdf:Description rdf:about="http://familytree/person/AchrafNasri">
-        <j.0:hasGender>M</j.0:hasGender>
-        <j.0:hasEmail>a@a.a</j.0:hasEmail>
-        <j.0:hasPhone>01234567</j.0:hasPhone>
-        <j.0:hasProfession>Student</j.0:hasProfession>
-        <j.0:liveIn>Nice</j.0:liveIn>
-        <j.0:hasBirthDate>Tue Apr 26 00:00:00 CEST 1994</j.0:hasBirthDate>
-        <j.0:hasLastName>Nasri</j.0:hasLastName>
-        <j.0:hasFistName>Achraf</j.0:hasFistName>
-      </rdf:Description>
-    </j.1:hasCreator>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://familytree/07ceedb2-5f0a-483f-8d43-94f005f48870">
-    <j.1:hasName>A</j.1:hasName>
-    <j.0:hasId>07ceedb2-5f0a-483f-8d43-94f005f48870</j.0:hasId>
-    <j.1:hasCreator>
-      <rdf:Description rdf:about="http://familytree/person/BA">
-        <j.0:hasGender>M</j.0:hasGender>
-        <j.0:hasEmail>ff@a.a</j.0:hasEmail>
-        <j.0:hasPhone>012345678</j.0:hasPhone>
-        <j.0:hasProfession>Student</j.0:hasProfession>
-        <j.0:liveIn>Nice</j.0:liveIn>
-        <j.0:hasBirthDate>Tue Apr 26 00:00:00 CEST 1994</j.0:hasBirthDate>
-        <j.0:hasLastName>A</j.0:hasLastName>
-        <j.0:hasFistName>B</j.0:hasFistName>
-      </rdf:Description>
-    </j.1:hasCreator>
-  </rdf:Description>
+  <f:Family rdf:about="http://familytree/e3a8e02c-9d11-491a-8ac6-4ea8cba29db7">
+    <f:hasName>Nasri</f:hasName>
+    <f:hasId>e3a8e02c-9d11-491a-8ac6-4ea8cba29db7</f:hasId>
+    <f:hasCreator>
+      <m:Member rdf:about="http://familytree/person/achrafNasri">
+        <m:hasGender>M</m:hasGender>
+        <m:hasEmail>a@a.a</m:hasEmail>
+        <m:hasPhone>0123456</m:hasPhone>
+        <m:hasProfession>Student</m:hasProfession>
+        <m:liveIn>Nice</m:liveIn>
+        <m:hasBirthDate>Tue Apr 26 00:00:00 CEST 1994</m:hasBirthDate>
+        <m:hasLastName>Nasri</m:hasLastName>
+        <m:hasFistName>achraf</m:hasFistName>
+      </m:Member>
+    </f:hasCreator>
+  </f:Family>
+  <f:Family rdf:about="http://familytree/bc49644a-53c2-4c82-8886-5bea054711df">
+    <f:hasName>Msellek</f:hasName>
+    <f:hasId>bc49644a-53c2-4c82-8886-5bea054711df</f:hasId>
+    <f:hasCreator>
+      <m:Member rdf:about="http://familytree/person/AhmedMsellek">
+        <m:hasGender>M</m:hasGender>
+        <m:hasEmail>a@a.a</m:hasEmail>
+        <m:hasPhone>0123456</m:hasPhone>
+        <m:hasProfession>Student</m:hasProfession>
+        <m:liveIn>Nice</m:liveIn>
+        <m:hasBirthDate>Tue Apr 26 00:00:00 CEST 1994</m:hasBirthDate>
+        <m:hasLastName>Msellek</m:hasLastName>
+        <m:hasFistName>Ahmed</m:hasFistName>
+      </m:Member>
+    </f:hasCreator>
+  </f:Family>
 </rdf:RDF>

@@ -24,6 +24,7 @@ public class Person {
 	private Gender gender;
 	private Relation relation;
 	private Person relative;
+	private String family;
 	
 	
 	public String getFirstName() {
@@ -92,5 +93,13 @@ public class Person {
 	public void setRelative(Person relative) {
 		this.relative = relative;
 	}
+	public String getFamily() {
+		return family;
+	}
+	public void setFamily(String family) {
+		this.family = family;
+	}
+	
+	
 	
 }

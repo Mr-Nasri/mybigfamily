@@ -23,14 +23,15 @@ public class RdfsModel {
 	
 	private static OntModel model;
 	
-	OntClass family;
-	OntClass member;
+	public static OntClass family;
+	public static OntClass member;
 	
 	//************* PROPERTIES FOR FAMILY ***************
 	//***************************************************
 	public static Property hasId;
 	public static OntProperty hasCreator;
 	public static OntProperty hasName;
+	public static OntProperty hasMember;
 	
 	
 	//************* PROPERTIES FOR MEMBER ***************
@@ -43,6 +44,7 @@ public class RdfsModel {
 	public static OntProperty hasPhone;
 	public static OntProperty hasEmail;
 	public static OntProperty hasGender;
+	
 	
 	public static OntProperty hasSibling;
 	public static OntProperty hasParent;
@@ -58,14 +60,18 @@ public class RdfsModel {
 		}
 		else{
 			model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
+			model.setNsPrefix("f", FAMILY_NAMESPACE);
+			model.setNsPrefix("m", MEMBER_NAMESPACE);
 
-			OntClass family = model.createClass( FAMILY_NAMESPACE + "Family" );
-			OntClass member = model.createClass( MEMBER_NAMESPACE + "Member" );
+			family = model.createClass( FAMILY_NAMESPACE + "Family" );
+			member = model.createClass( MEMBER_NAMESPACE + "Member" );
 
+			hasMember = model.createObjectProperty(FAMILY_NAMESPACE + "hasMember");
 			hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
+			hasCreator.setSuperProperty(hasMember);
 			hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
-			//hasCreator.addRange(res);
-			hasId = model.createProperty(MEMBER_NAMESPACE, "hasId");
+			hasId = model.createProperty(FAMILY_NAMESPACE, "hasId");
+			
 			hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
 	    	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
 	    	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
@@ -92,7 +98,8 @@ public class RdfsModel {
 
 	public static Resource createMember(Person member) {
 		String memberURI = "http://familytree/person/" + member.getFirstName() + member.getLastName();
-		Resource memberResource = model.createResource(memberURI);
+		Resource memberResource = model.createResource(memberURI, RdfsModel.member);
+		
 		if(member.getFirstName() != null && !member.getFirstName().equals("")){
 			memberResource.addProperty(hasFistName, member.getFirstName());
 		}

@@ -27,7 +27,7 @@ var GetFamilyComponent = (function () {
         console.log(this.familyId);
         this.familyService.getFamily(this.familyId).subscribe(function (data) {
             _this.result = data.text();
-            if (_this.result == "yes") {
+            if (_this.result == "ok") {
                 console.log(_this.result);
                 _this.loginService.login(_this.familyId);
                 _this.router.navigate(['addMember']);

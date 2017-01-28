@@ -7,7 +7,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.ResIterator;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.StmtIterator;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import business.SPARQLQueries;
 import model.Family;
 import model.Person;
 import model.RdfsModel;
@@ -37,7 +40,7 @@ public class FamilyService {
     	Model model = RdfsModel.getModel();
 
     	// create the resource
-    	Resource familyResource = model.createResource(familyURI);
+    	Resource familyResource = model.createResource(familyURI, RdfsModel.family);
     	Resource creatorResource = RdfsModel.createMember(family.getCreator());
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
     	familyResource.addProperty(RdfsModel.hasId, familyID);
@@ -59,15 +62,27 @@ public class FamilyService {
 		System.out.println("resource" + r);
 		
 		if(model.contains(r,RdfsModel.hasId)){
-			System.out.println("yes");
-			return "yes";
+			return "ok";
 		}
-			
+		else{
+			return "ko";
+		}		
+    }
+	
+	@RequestMapping(value="/members/get/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public List<String> getMembers(@PathVariable String id) {
+		String familyURI = "http://familytree/" + id;
+		Model model = RdfsModel.getModel();
+		Resource r = model.createResource(familyURI);
+		
+		if(model.contains(r,RdfsModel.hasId)){
+			System.out.println("yes");
+			return SPARQLQueries.getMembersById(id);
+		}
 		else{
 			System.out.println("no");
-			return "no";
-		}
-			
+			return null;
+		}		
     }
 	
 	@RequestMapping(value="/auth/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)

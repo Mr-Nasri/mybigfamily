@@ -26,7 +26,7 @@ export class GetFamilyComponent  {
         this.familyService.getFamily(this.familyId).subscribe(
             data => {
                 this.result = data.text();
-                if(this.result == "yes"){
+                if(this.result == "ok"){
                     console.log(this.result);
                     this.loginService.login(this.familyId);
                     this.router.navigate(['addMember']);
