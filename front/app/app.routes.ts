@@ -4,6 +4,7 @@ import { GetFamilyComponent } from './components/getFamily.component';
 import { AboutComponent } from './components/about.component';
 import {AddMemberComponent} from "./components/addMember.component";
 import {AuthGuard} from "./guards/auth.guard";
+import {SearchComponent} from "./components/search.component";
 
 
 export const Routes = [
@@ -12,4 +13,6 @@ export const Routes = [
     { path: 'getFamily', component: GetFamilyComponent },
     { path: 'about', component: AboutComponent },
     { path: 'addMember', component: AddMemberComponent, canActivate: [AuthGuard] },
+    { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+
 ];

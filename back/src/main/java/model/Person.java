@@ -79,7 +79,7 @@ public class Person {
 		this.gender = Gender.valueOf(gender);
 	}
 	public String getRelation() {
-		if(gender != null)
+		if(relation != null)
 			return relation.name();
 		else
 			return null;

@@ -127,11 +127,12 @@ public class RdfsModel {
 		if(member.getGender() != null && !member.getGender().equals("")){
 			memberResource.addProperty(hasGender, member.getGender());
 		}
+		System.out.println(member.getRelation() + " : " + member.getRelative());
 		if(member.getRelation() != null && !member.getRelation().equals("")
 				&& member.getRelative() != null && !member.getRelative().equals("")){
 			String relativeURI = "http://familytree/person/" + member.getRelative().replaceAll("\\s+","");
 			Resource relativeResource = model.createResource(relativeURI);
-			
+			System.out.println(member.getRelation() + " : " + member.getRelative());
 //			if(model.contains(relativeResource,RdfsModel.hasId)){
 				System.out.println("family contains " + relativeURI);
 				switch(member.getRelation()){
@@ -155,6 +156,11 @@ public class RdfsModel {
 			
 		}
 		return memberResource;
+	}
+	
+	public static Person createMember(Resource member) {
+		
+		return null;
 	}
 	
 	public static void insertData(){

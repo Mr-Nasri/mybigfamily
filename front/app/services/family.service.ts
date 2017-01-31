@@ -16,6 +16,7 @@ export class FamilyService {
     getFamilyUrl = "http://localhost:8080/family/get/";
     getMembersUrl = "http://localhost:8080/family/members/get/";
     addMemberUrl = "http://localhost:8080/family/member/add/";
+    searchInCityUrl = "http://localhost:8080/family/searchInCity/";
 
     createFamily(family : Family): Observable<Response> {
         let body = JSON.stringify(family);
@@ -51,6 +52,14 @@ export class FamilyService {
         let options = new RequestOptions({headers: headers});
 
         return this.http.post(this.addMemberUrl + familyId, body, options)
+        //.map(this.extractData)
+            .catch(this.handleError);
+
+    }
+
+    searchInCity(familyId : string, city : string): Observable<Response> {
+        console.log(familyId);
+        return this.http.get(this.searchInCityUrl + familyId + "/" + city)
         //.map(this.extractData)
             .catch(this.handleError);
 

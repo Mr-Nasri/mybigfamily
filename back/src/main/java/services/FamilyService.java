@@ -1,5 +1,6 @@
 package services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -40,11 +41,6 @@ public class FamilyService {
     	Model model = RdfsModel.getModel();
 
     	// create the resource
-    	System.out.println(" 1 : " + model.toString());
-    	System.out.println(" 2 : " + RdfsModel.getModel());
-    	System.out.println(" 3 : " + familyURI);
-    	System.out.println(" 4 : " + RdfsModel.family);
-    	System.out.println(" 5 : " + family.getCreator());
     	Resource familyResource = model.createResource(familyURI, RdfsModel.family);
     	
     	Resource creatorResource = RdfsModel.createMember(family.getCreator());
@@ -97,6 +93,8 @@ public class FamilyService {
 		Model model = RdfsModel.getModel();
 		Resource familyResource = model.createResource(familyURI);
 		System.out.println("add member for family : " + familyURI);
+		System.out.println("relation exists : " + member.getRelation());
+		System.out.println("gender exists : " + member.getGender());
 		if(model.contains(familyResource,RdfsModel.hasId)){
 			System.out.println(familyURI + " exists !");
 			Resource memberResource = RdfsModel.createMember(member);
@@ -107,6 +105,27 @@ public class FamilyService {
 		else{
 			System.out.println(familyURI + " does not exist !");
 			return "";
+		}		
+    }
+	
+	@RequestMapping(value="/searchInCity/{familyId}/{city}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public List<Person> searchInCity(@PathVariable String familyId, @PathVariable String city) {
+		String familyURI = "http://familytree/" + familyId;
+		Model model = RdfsModel.getModel();
+		Resource familyResource = model.createResource(familyURI);
+		
+		if(model.contains(familyResource,RdfsModel.hasId)){
+			System.out.println("search members in city for family : " + familyId);
+			List<Resource> memberResources = SPARQLQueries.searchMembersInCity(familyId, city);
+			List<Person> members = new ArrayList<Person>();
+			for(Resource r : memberResources){
+				members.add(RdfsModel.createMember(r));
+			}
+			return members;
+		}
+		else{
+			System.out.println("cannot search members in city for family : " + familyId);
+			return null;
 		}		
     }
 	

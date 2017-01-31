@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>Search members in city</h1>
+<form (ngSubmit)="onSearchInCity($event)" #searchForm="ngForm">
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city"
+               required
+               [(ngModel)]="city" name="city">
+    </div>
+    <button type="submit" class="btn btn-default" [disabled]="!searchForm.form.valid">Submit</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <span *ngIf="result" class="danger"> {{result}}  </span>
+</form>
 
-</body>
-</html>
+<h1>Get The Mailing list</h1>
+<!--<form (ngSubmit)="findMailingList($event)" #mailingListForm="ngForm">
+    <div class="form-group">
+        <label for="familyId">family Id</label>
+        <input type="text" class="form-control" id="familyId"
+               required
+               [(ngModel)]="test" name="familyId">
+    </div>
+
+
+    <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <span *ngIf="result" class="danger"> {{result}}  </span>
+</form>-->
