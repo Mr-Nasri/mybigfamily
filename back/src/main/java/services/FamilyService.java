@@ -40,7 +40,13 @@ public class FamilyService {
     	Model model = RdfsModel.getModel();
 
     	// create the resource
+    	System.out.println(" 1 : " + model.toString());
+    	System.out.println(" 2 : " + RdfsModel.getModel());
+    	System.out.println(" 3 : " + familyURI);
+    	System.out.println(" 4 : " + RdfsModel.family);
+    	System.out.println(" 5 : " + family.getCreator());
     	Resource familyResource = model.createResource(familyURI, RdfsModel.family);
+    	
     	Resource creatorResource = RdfsModel.createMember(family.getCreator());
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
     	familyResource.addProperty(RdfsModel.hasId, familyID);
@@ -58,10 +64,10 @@ public class FamilyService {
 		String familyURI = "http://familytree/" + id;
 		System.out.println("uri :" + familyURI);
 		Model model = RdfsModel.getModel();
-		Resource r = model.createResource(familyURI);
-		System.out.println("resource" + r);
+		Resource familyResource = model.createResource(familyURI);
+		System.out.println("resource" + familyResource);
 		
-		if(model.contains(r,RdfsModel.hasId)){
+		if(model.contains(familyResource,RdfsModel.hasId)){
 			return "ok";
 		}
 		else{
@@ -73,15 +79,34 @@ public class FamilyService {
     public List<String> getMembers(@PathVariable String id) {
 		String familyURI = "http://familytree/" + id;
 		Model model = RdfsModel.getModel();
-		Resource r = model.createResource(familyURI);
+		Resource familyResource = model.createResource(familyURI);
 		
-		if(model.contains(r,RdfsModel.hasId)){
+		if(model.contains(familyResource,RdfsModel.hasId)){
 			System.out.println("yes");
 			return SPARQLQueries.getMembersById(id);
 		}
 		else{
 			System.out.println("no");
 			return null;
+		}		
+    }
+	
+	@RequestMapping(value="/member/add/{id}", method= RequestMethod.POST, produces = MediaType.APPLICATION_JSON)
+    public String addMember(@PathVariable String id, @RequestBody Person member) {
+		String familyURI = "http://familytree/" + id;
+		Model model = RdfsModel.getModel();
+		Resource familyResource = model.createResource(familyURI);
+		System.out.println("add member for family : " + familyURI);
+		if(model.contains(familyResource,RdfsModel.hasId)){
+			System.out.println(familyURI + " exists !");
+			Resource memberResource = RdfsModel.createMember(member);
+	    	familyResource.addProperty(RdfsModel.hasMember, memberResource);
+	    	RdfsModel.insertData();
+	    	return "ok";
+		}
+		else{
+			System.out.println(familyURI + " does not exist !");
+			return "";
 		}		
     }
 	

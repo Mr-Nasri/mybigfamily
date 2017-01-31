@@ -1,18 +1,11 @@
 <h1>Add Member</h1>
 <form (ngSubmit)="onSubmit($event)" #form="ngForm">
-    <div class="form-group">
-        <label for="familyName">family Name</label>
-        <input type="text" class="form-control" id="familyName"
-               required
-               [(ngModel)]="familyName" name="familyName"
-               #firstName="ngModel" >
-    </div>
 
     <div class="form-group">
-        <label for="name">First Name</label>
-        <input type="text" class="form-control" id="name"
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName"
                required
-               [(ngModel)]="creator.firstName" name="name"
+               [(ngModel)]="member.firstName" name="firstName"
                #firstName="ngModel" >
     </div>
 
@@ -20,14 +13,14 @@
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" id="lastName"
                required
-               [(ngModel)]="creator.lastName" name="lastName"
+               [(ngModel)]="member.lastName" name="lastName"
                #lastName="ngModel" >
     </div>
 
     <div class="form-group">
         <label for="gender">Gender</label>
         <select class="form-control" id="gender"
-                [(ngModel)]="creator.gender" name="gender"
+                [(ngModel)]="member.gender" name="gender"
                 #gender="ngModel" >
             <option *ngFor="let g of genderValues" [value]="g">{{g}}</option>
         </select>
@@ -36,39 +29,59 @@
     <div class="form-group">
         <label for="birthDate">Birthdate</label>
         <input class="form-control" id="birthDate"
-               [(ngModel)]="creator.birthDate" name="birthDate"
+               [(ngModel)]="member.birthDate" name="birthDate"
                #birthDate="ngModel" >
     </div>
 
     <div class="form-group">
         <label for="city">Live in</label>
         <input class="form-control" id="city"
-               [(ngModel)]="creator.city" name="city"
+               [(ngModel)]="member.city" name="city"
                #city="ngModel" >
     </div>
 
     <div class="form-group">
         <label for="profession">Profession</label>
         <input class="form-control" id="profession"
-               [(ngModel)]="creator.profession" name="profession"
+               [(ngModel)]="member.profession" name="profession"
                #profession="ngModel" >
     </div>
 
     <div class="form-group">
         <label for="phone">Phone number</label>
         <input class="form-control" id="phone"
-               [(ngModel)]="creator.phone" name="phone"
+               [(ngModel)]="member.phone" name="phone"
                #phone="ngModel" >
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
         <input class="form-control" id="email"
-               [(ngModel)]="creator.email" name="email"
+               [(ngModel)]="member.email" name="email"
                #email="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="relation">Relation</label>
+        <select class="form-control" id="relation"
+                required
+                [(ngModel)]="member.relation" name="relation"
+                #relation="ngModel">
+            <option *ngFor="let relation of relations" [value]="relation">{{relation}}</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label for="relative">With</label>
+        <select class="form-control" id="relative"
+                required
+                [(ngModel)]="member.relative" name="relative"
+                #relative="ngModel">
+            <option *ngFor="let member of members" [value]="member">{{member}}</option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
     <button type="reset" class="btn btn-default">Reset</button>
-    <span *ngIf="familyId"> Family successfuly created, your familyId is : {{familyId}}  </span>
+    <span *ngIf="success"> Member successfuly added !</span>
 </form>

@@ -31,6 +31,13 @@
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasLastName"/>
   <f:Family rdf:about="http://familytree/e3a8e02c-9d11-491a-8ac6-4ea8cba29db7">
+    <f:hasMember>
+      <m:Member rdf:about="http://familytree/person/aaaNasri">
+        <m:hasGender>M</m:hasGender>
+        <m:hasLastName>Nasri</m:hasLastName>
+        <m:hasFistName>aaa</m:hasFistName>
+      </m:Member>
+    </f:hasMember>
     <f:hasName>Nasri</f:hasName>
     <f:hasId>e3a8e02c-9d11-491a-8ac6-4ea8cba29db7</f:hasId>
     <f:hasCreator>
@@ -61,5 +68,15 @@
         <m:hasFistName>Ahmed</m:hasFistName>
       </m:Member>
     </f:hasCreator>
+  </f:Family>
+  <f:Family rdf:about="http://familytree/ef4f830f-4362-4731-b7b6-0d303aee3c56">
+    <f:hasCreator>
+      <m:Member rdf:about="http://familytree/person/Achraftest">
+        <m:hasFistName>Achraf</m:hasFistName>
+        <m:hasLastName>test</m:hasLastName>
+      </m:Member>
+    </f:hasCreator>
+    <f:hasId>ef4f830f-4362-4731-b7b6-0d303aee3c56</f:hasId>
+    <f:hasName>test</f:hasName>
   </f:Family>
 </rdf:RDF>

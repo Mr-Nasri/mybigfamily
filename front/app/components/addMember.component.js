@@ -12,24 +12,22 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var family_service_1 = require("../services/family.service");
 var Member_1 = require("../models/Member");
-var Family_1 = require("../models/Family");
 var AddMemberComponent = (function () {
     function AddMemberComponent(route, familyService) {
+        var _this = this;
         this.route = route;
         this.familyService = familyService;
-        this.familyName = '';
-        this.creator = new Member_1.Member();
+        this.relations = ['child', 'parent', 'sibling', 'spouse'];
         this.genderValues = ['M', 'F'];
-        this.familyId = null;
+        this.member = new Member_1.Member();
+        this.familyId = localStorage.getItem('currentFamily');
+        this.success = '';
+        this.familyService.getMembers(this.familyId).subscribe(function (data) { _this.members = data.json(); console.log(data.json()); }, function (err) { console.log('Error : ' + err); });
     }
     AddMemberComponent.prototype.onSubmit = function (event) {
         var _this = this;
         event.preventDefault();
-        console.log(JSON.stringify(this.creator));
-        var family = new Family_1.Family();
-        family.creator = this.creator;
-        family.name = this.familyName;
-        this.familyService.createFamily(family).subscribe(function (data) { _this.familyId = data.text(); }, function (err) { console.log('Error : ' + err); });
+        this.familyService.addMember(this.member, this.familyId).subscribe(function (data) { _this.success = data.text(); }, function (err) { console.log('Error : ' + err); });
     };
     AddMemberComponent = __decorate([
         core_1.Component({

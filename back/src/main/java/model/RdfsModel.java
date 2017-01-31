@@ -54,41 +54,40 @@ public class RdfsModel {
 	static {
 		File f = new File(DATA_FILE);
 		
+		model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
+		model.setNsPrefix("f", FAMILY_NAMESPACE);
+		model.setNsPrefix("m", MEMBER_NAMESPACE);
+
+		family = model.createClass( FAMILY_NAMESPACE + "Family" );
+		member = model.createClass( MEMBER_NAMESPACE + "Member" );
+
+		hasMember = model.createObjectProperty(FAMILY_NAMESPACE + "hasMember");
+		hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
+		hasCreator.setSuperProperty(hasMember);
+		hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
+		hasId = model.createProperty(FAMILY_NAMESPACE, "hasId");
+		
+		hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
+    	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
+    	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
+    	liveIn = model.createObjectProperty(MEMBER_NAMESPACE + "liveIn");
+    	hasProfession = model.createObjectProperty(MEMBER_NAMESPACE + "hasProfession");
+    	hasPhone = model.createObjectProperty(MEMBER_NAMESPACE + "hasPhone");
+    	hasEmail = model.createObjectProperty(MEMBER_NAMESPACE + "hasEmail");
+    	hasGender = model.createObjectProperty(MEMBER_NAMESPACE + "hasGender");
+    	
+    	
+    	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
+    	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
+    	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
+    	hasChild = model.createObjectProperty(MEMBER_NAMESPACE + "hasChild");
+    	
+    	hasParent.setInverseOf(hasChild);
+    	hasSibling.setInverseOf(hasSibling);
+    	
 		if(f.exists() && !f.isDirectory() && f.length() != 0) { 
-			model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
+			//model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
 			model.read(f.getAbsolutePath(), "RDF/XML");
-		}
-		else{
-			model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);
-			model.setNsPrefix("f", FAMILY_NAMESPACE);
-			model.setNsPrefix("m", MEMBER_NAMESPACE);
-
-			family = model.createClass( FAMILY_NAMESPACE + "Family" );
-			member = model.createClass( MEMBER_NAMESPACE + "Member" );
-
-			hasMember = model.createObjectProperty(FAMILY_NAMESPACE + "hasMember");
-			hasCreator = model.createObjectProperty(FAMILY_NAMESPACE + "hasCreator");
-			hasCreator.setSuperProperty(hasMember);
-			hasName = model.createObjectProperty(FAMILY_NAMESPACE + "hasName");
-			hasId = model.createProperty(FAMILY_NAMESPACE, "hasId");
-			
-			hasFistName = model.createObjectProperty(MEMBER_NAMESPACE + "hasFistName");
-	    	hasLastName = model.createObjectProperty(MEMBER_NAMESPACE + "hasLastName");
-	    	hasBirthDate = model.createObjectProperty(MEMBER_NAMESPACE + "hasBirthDate");
-	    	liveIn = model.createObjectProperty(MEMBER_NAMESPACE + "liveIn");
-	    	hasProfession = model.createObjectProperty(MEMBER_NAMESPACE + "hasProfession");
-	    	hasPhone = model.createObjectProperty(MEMBER_NAMESPACE + "hasPhone");
-	    	hasEmail = model.createObjectProperty(MEMBER_NAMESPACE + "hasEmail");
-	    	hasGender = model.createObjectProperty(MEMBER_NAMESPACE + "hasGender");
-	    	
-	    	
-	    	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
-	    	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
-	    	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
-	    	hasChild = model.createObjectProperty(MEMBER_NAMESPACE + "hasChild");
-	    	
-	    	hasParent.setInverseOf(hasChild);
-	    	hasSibling.setInverseOf(hasSibling);
 		}
 	}
 	
@@ -97,7 +96,9 @@ public class RdfsModel {
 	}
 
 	public static Resource createMember(Person member) {
+		System.out.println(" member is " + member);
 		String memberURI = "http://familytree/person/" + member.getFirstName() + member.getLastName();
+		System.out.println(" model is " + model);
 		Resource memberResource = model.createResource(memberURI, RdfsModel.member);
 		
 		if(member.getFirstName() != null && !member.getFirstName().equals("")){
@@ -124,6 +125,7 @@ public class RdfsModel {
 		if(member.getGender() != null && !member.getGender().equals("")){
 			memberResource.addProperty(hasGender, member.getGender());
 		}
+		//if(member.getRelation())
 		return memberResource;
 	}
 	

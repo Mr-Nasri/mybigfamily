@@ -11,25 +11,27 @@ import {Family} from "../models/Family";
 })
 export class AddMemberComponent  {
     constructor(private route: ActivatedRoute, private familyService : FamilyService) {
-
+        this.familyService.getMembers(this.familyId).subscribe(
+            data => {this.members = data.json(); console.log(data.json())},
+            err => { console.log('Error : ' + err) }
+        );
     }
 
-    familyName = '';
-    creator = new Member();
+    relations = ['child', 'parent', 'sibling', 'spouse'];
     genderValues = ['M', 'F'];
-    familyId : string = null;
+    members : any;
+
+    member = new Member();
+
+    familyId : string = localStorage.getItem('currentFamily');
+
+    success = '';
 
     onSubmit(event: Event){
         event.preventDefault();
-        console.log(JSON.stringify(this.creator));
-        var family = new Family();
-        family.creator = this.creator;
-        family.name = this.familyName;
-
-        this.familyService.createFamily(family).subscribe(
-            data => {this.familyId = data.text()},
+        this.familyService.addMember(this.member, this.familyId).subscribe(
+            data => {this.success = data.text()},
             err => { console.log('Error : ' + err) }
         );
-
     }
 }

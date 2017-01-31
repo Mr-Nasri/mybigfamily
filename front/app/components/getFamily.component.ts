@@ -22,7 +22,6 @@ export class GetFamilyComponent  {
     onSubmit(event: Event){
         event.preventDefault();
         console.log(this.familyId);
-
         this.familyService.getFamily(this.familyId).subscribe(
             data => {
                 this.result = data.text();

@@ -23,7 +23,7 @@ public class Person {
 	private String email;
 	private Gender gender;
 	private Relation relation;
-	private Person relative;
+	private String relative;
 	private String family;
 	
 	
@@ -87,10 +87,10 @@ public class Person {
 	public void setRelation(String relation) {
 		this.relation = Relation.valueOf(relation);
 	}
-	public Person getRelative() {
+	public String getRelative() {
 		return relative;
 	}
-	public void setRelative(Person relative) {
+	public void setRelative(String relative) {
 		this.relative = relative;
 	}
 	public String getFamily() {

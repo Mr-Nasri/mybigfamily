@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 import {Family} from "../models/Family";
-
+import {Member} from "../models/Member";
 
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
@@ -15,6 +15,7 @@ export class FamilyService {
     createFamilyUrl = "http://localhost:8080/family/create";
     getFamilyUrl = "http://localhost:8080/family/get/";
     getMembersUrl = "http://localhost:8080/family/members/get/";
+    addMemberUrl = "http://localhost:8080/family/member/add/";
 
     createFamily(family : Family): Observable<Response> {
         let body = JSON.stringify(family);
@@ -38,6 +39,18 @@ export class FamilyService {
 
     getMembers(familyId : string): Observable<Response> {
         return this.http.get(this.getMembersUrl + familyId)
+        //.map(this.extractData)
+            .catch(this.handleError);
+
+    }
+
+    addMember(member : Member, familyId : string): Observable<Response> {
+        let body = JSON.stringify(member);
+        console.log(body);
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post(this.addMemberUrl + familyId, body, options)
         //.map(this.extractData)
             .catch(this.handleError);
 

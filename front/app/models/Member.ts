@@ -9,7 +9,7 @@ export class Member {
     public email: string;
     public gender: string;
     public relation: string;
-    public relative: Member;
+    public relative: string;
 
     constructor(
 /*        public id: number,
