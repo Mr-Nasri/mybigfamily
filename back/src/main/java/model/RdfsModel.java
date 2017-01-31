@@ -44,6 +44,8 @@ public class RdfsModel {
 	public static OntProperty hasPhone;
 	public static OntProperty hasEmail;
 	public static OntProperty hasGender;
+	//public static OntProperty hasRelation;
+	public static OntProperty hasRelative;
 	
 	
 	public static OntProperty hasSibling;
@@ -77,6 +79,8 @@ public class RdfsModel {
     	hasGender = model.createObjectProperty(MEMBER_NAMESPACE + "hasGender");
     	
     	
+    	
+    	
     	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
     	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
     	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
@@ -96,9 +100,7 @@ public class RdfsModel {
 	}
 
 	public static Resource createMember(Person member) {
-		System.out.println(" member is " + member);
-		String memberURI = "http://familytree/person/" + member.getFirstName() + member.getLastName();
-		System.out.println(" model is " + model);
+		String memberURI = "http://familytree/person/" + member.getFirstName().replaceAll("\\s+","") + member.getLastName().replaceAll("\\s+","");
 		Resource memberResource = model.createResource(memberURI, RdfsModel.member);
 		
 		if(member.getFirstName() != null && !member.getFirstName().equals("")){
@@ -125,7 +127,33 @@ public class RdfsModel {
 		if(member.getGender() != null && !member.getGender().equals("")){
 			memberResource.addProperty(hasGender, member.getGender());
 		}
-		//if(member.getRelation())
+		if(member.getRelation() != null && !member.getRelation().equals("")
+				&& member.getRelative() != null && !member.getRelative().equals("")){
+			String relativeURI = "http://familytree/person/" + member.getRelative().replaceAll("\\s+","");
+			Resource relativeResource = model.createResource(relativeURI);
+			
+//			if(model.contains(relativeResource,RdfsModel.hasId)){
+				System.out.println("family contains " + relativeURI);
+				switch(member.getRelation()){
+				case "child":
+					memberResource.addProperty(hasChild, relativeResource);
+					break;
+				case "parent":
+					memberResource.addProperty(hasParent, relativeResource);
+					break;
+				case "sibling":
+					memberResource.addProperty(hasSibling, relativeResource);
+					break;
+				case "spouse":
+					memberResource.addProperty(hasSpouse, relativeResource);
+					break;
+			}
+//			}
+//			else{
+//				System.out.println("family don't contain " + relativeURI);
+//			}
+			
+		}
 		return memberResource;
 	}
 	
