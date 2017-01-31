@@ -14,21 +14,15 @@ export class SearchComponent  {
 
     }
 
-    familyName = '';
-    creator = new Member();
-    genderValues = ['M', 'F'];
     familyId : string = localStorage.getItem('currentFamily');
     city = '';
+    members : Array<Member>;
+
 
     onSearchInCity(event: Event){
         event.preventDefault();
-        console.log(JSON.stringify(this.creator));
-        var family = new Family();
-        family.creator = this.creator;
-        family.name = this.familyName;
-
         this.familyService.searchInCity(this.familyId, this.city).subscribe(
-            data => {this.familyId = data.text()},
+            data => {this.members = data.json(); console.log(this.members)},
             err => { console.log('Error : ' + err) }
         );
     }

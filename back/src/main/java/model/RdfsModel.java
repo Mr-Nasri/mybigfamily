@@ -4,7 +4,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import org.apache.jena.datatypes.RDFDatatype;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -14,6 +18,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
 
 public class RdfsModel {
 
@@ -52,6 +57,8 @@ public class RdfsModel {
 	public static OntProperty hasParent;
 	public static OntProperty hasChild;
 	public static OntProperty hasSpouse;
+	
+	private static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
 	static {
 		File f = new File(DATA_FILE);
@@ -110,7 +117,7 @@ public class RdfsModel {
 			memberResource.addProperty(hasLastName, member.getLastName());
 		}
 		if(member.getBirthDate() != null){
-			memberResource.addProperty(hasBirthDate, member.getBirthDate().toString());
+			memberResource.addProperty(hasBirthDate, formatter.format(member.getBirthDate()));
 		}
 		if(member.getCity() != null && !member.getCity().equals("")){
 			memberResource.addProperty(liveIn, member.getCity());
@@ -158,9 +165,22 @@ public class RdfsModel {
 		return memberResource;
 	}
 	
-	public static Person createMember(Resource member) {
-		
-		return null;
+	public static Person createMember(Resource memberResource) {
+		Person member = new Person();
+		member.setFirstName(memberResource.getProperty(hasFistName).getString());
+		member.setLastName(memberResource.getProperty(hasLastName).getString());
+		try {
+			System.out.println("date : " + memberResource.getProperty(hasBirthDate).getString());
+			member.setBirthDate(formatter.parse(memberResource.getProperty(hasBirthDate).getString()));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		member.setCity(memberResource.getProperty(liveIn).getString());
+		member.setProfession(memberResource.getProperty(hasProfession).getString());
+		member.setEmail(memberResource.getProperty(hasEmail).getString());
+		member.setPhone(memberResource.getProperty(hasPhone).getString());
+		member.setGender(memberResource.getProperty(hasGender).getString());
+		return member;
 	}
 	
 	public static void insertData(){
