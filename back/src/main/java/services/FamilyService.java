@@ -1,11 +1,14 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.ws.rs.core.MediaType;
 
+import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.ResIterator;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import business.InferenceRules;
 import business.SPARQLQueries;
 import model.Family;
 import model.Person;
@@ -57,6 +61,7 @@ public class FamilyService {
 	
 	@RequestMapping(value="/get/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public String getFamily(@PathVariable String id) {
+		InferenceRules.getInfModel();
 		String familyURI = "http://familytree/" + id;
 		System.out.println("uri :" + familyURI);
 		Model model = RdfsModel.getModel();
@@ -129,24 +134,62 @@ public class FamilyService {
 		}		
     }
 	
-	@RequestMapping(value="/auth/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public List<String> authenticate(@PathVariable String id) {
-		// check if id exists in the RDF (if family exists)
-		// if exists
-			//get from rdf all members of this family in the format (firstName + lastName)
-			// return this list of Strings
-		// else
-			// return error message
-		return null;
+	@RequestMapping(value="/relatives/{familyId}/{member}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public HashMap<String,List<Person>> findRelatives(@PathVariable String familyId, @PathVariable String member) {
+		String familyURI = "http://familytree/" + familyId;
+		String memberURI = "http://familytree/person/" + member.replaceAll("\\s+","");
+		InfModel infModel = InferenceRules.getInfModel();
+		Resource familyResource = infModel.createResource(familyURI);
+		
+		if(infModel.contains(familyResource,RdfsModel.hasId)){
+			System.out.println("InfModel : " + infModel);
+			System.out.println("search relatives of : " + memberURI);
+			
+			HashMap<String,List<Person>> relatives = new HashMap<String,List<Person>>();
+			
+			List<Person> aunts = new ArrayList<Person>();
+			List<Resource> auntResources = SPARQLQueries.searchAunts(familyId, memberURI);
+			for(Resource r : auntResources){
+				System.out.println("search aunts of : " + memberURI);
+				aunts.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Aunt", aunts);
+			
+			List<Person> uncles = new ArrayList<Person>();
+			List<Resource> uncleResources = SPARQLQueries.searchUncles(familyId, memberURI);
+			for(Resource r : uncleResources){
+				System.out.println("search uncles of : " + memberURI);
+				uncles.add(RdfsModel.createMember(r));
+				System.out.println("size uncles : " + uncles.size());
+			}
+			System.out.println("size uncles 2: " + uncles.size());
+			relatives.put("Uncle", uncles);
+			System.out.println("uncles in relatives" + relatives.get("uncle"));
+			
+			List<Person> cousins = new ArrayList<Person>();
+			List<Resource> cousinResources = SPARQLQueries.searchCousins(familyId, memberURI);
+			for(Resource r : cousinResources){
+				System.out.println("search cousins of : " + memberURI);
+				cousins.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Cousin", cousins);
+			
+			List<Person> grandParents = new ArrayList<Person>();
+			List<Resource> grandParentResources = SPARQLQueries.searchGrandParents(familyId, memberURI);
+			for(Resource r : grandParentResources){
+				System.out.println("search grandParents of : " + memberURI);
+				grandParents.add(RdfsModel.createMember(r));
+			}
+			System.out.println("GrandParentsize : " + grandParents.size());
+			relatives.put("GrandParent", grandParents);
+			//relatives.
+			System.out.println("size : " + relatives.size());
+			return relatives;
+		}
+		else{
+			System.out.println("cannot search members in city for family : " + familyId);
+			return null;
+		}		
     }
 	
-	@RequestMapping(value="{id}/add", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public void addMember(@RequestBody Person person, @PathVariable String id) {
-		// get family from rdf
-		// get the member specified in person from family let's call it A
-		// create the person
-		// make the relation between person and A
-		// update the RDF
-		
-    }
 }

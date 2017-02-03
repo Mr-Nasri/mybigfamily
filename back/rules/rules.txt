@@ -1,0 +1,7 @@
+@prefix f: <http://familytree/ns/>.
+@prefix m: <http://familytree/member/ns/> .
+ 
+[ruleHasUncle: (?a m:hasParent ?b) (?b m:hasSibling ?c) (?c m:hasGender "M") -> (?a m:hasUncle ?c)]
+[ruleHasAunt: (?a m:hasParent ?b) (?b m:hasSibling ?c) (?c m:hasGender "F") -> (?a m:hasAunt ?c)]
+[ruleHasCousin: (?a m:hasParent ?b) (?b m:hasSibling ?c) (?c m:hasChild "d") -> (?a m:hasCousin ?d)]
+[ruleHasGrandParent: (?a m:hasParent ?b) (?b m:hasParent ?c) -> (?a m:hasGrandParent ?c)]

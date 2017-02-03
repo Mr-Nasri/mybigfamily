@@ -95,6 +95,7 @@ public class RdfsModel {
     	
     	hasParent.setInverseOf(hasChild);
     	hasSibling.setInverseOf(hasSibling);
+    	hasSpouse.setInverseOf(hasSpouse);
     	
 		if(f.exists() && !f.isDirectory() && f.length() != 0) { 
 			//model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_RDFS_INF);

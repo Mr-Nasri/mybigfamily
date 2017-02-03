@@ -23,30 +23,62 @@
             <th>Gender</th>
         </tr>
     </thead>
-    <tbody *ngFor="let member of members">
+    <tbody *ngFor="let memberInCity of membersInCity">
         <tr>
-            <td>{{member.firstName}}</td>
-            <td>{{member.lastName}}</td>
-            <td>{{member.birthDate | date}}</td>
-            <td>{{member.city}}</td>
-            <td>{{member.profession}}</td>
-            <td>{{member.phone}}</td>
-            <td>{{member.email}}</td>
-            <td>{{member.gender}}</td>
+            <td>{{memberInCity.firstName}}</td>
+            <td>{{memberInCity.lastName}}</td>
+            <td>{{memberInCity.birthDate | date}}</td>
+            <td>{{memberInCity.city}}</td>
+            <td>{{memberInCity.profession}}</td>
+            <td>{{memberInCity.phone}}</td>
+            <td>{{memberInCity.email}}</td>
+            <td>{{memberInCity.gender}}</td>
         </tr>
     </tbody>
 </table>
-<h1>Get The Mailing list</h1>
-<!--<form (ngSubmit)="findMailingList($event)" #mailingListForm="ngForm">
+<h1>Get Relatives</h1>
+
+<form (ngSubmit)="findRelatives($event)" #mailingListForm="ngForm">
     <div class="form-group">
-        <label for="familyId">family Id</label>
-        <input type="text" class="form-control" id="familyId"
-               required
-               [(ngModel)]="test" name="familyId">
+        <label for="relative">Member</label>
+        <select class="form-control" id="relative"
+                required
+                [(ngModel)]="person" name="relative"
+                #relative="ngModel">
+            <option *ngFor="let member of members" [value]="member">{{member}}</option>
+        </select>
     </div>
-
-
-    <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!mailingListForm.form.valid">Submit</button>
     <button type="reset" class="btn btn-default">Reset</button>
-    <span *ngIf="result" class="danger"> {{result}}  </span>
-</form>-->
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>BirthDate</th>
+            <th>City</th>
+            <th>Profession</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Relation</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let specificRelatives of relatives | keys">
+        <ng-container *ngFor="let p of specificRelatives.value">
+            <tr>
+                <td>{{p.firstName}}</td>
+                <td>{{p.lastName}}</td>
+                <td>{{p.birthDate}}</td>
+                <td>{{p.city}}</td>
+                <td>{{p.profession}}</td>
+                <td>{{p.phone}}</td>
+                <td>{{p.email}}</td>
+                <td>{{p.gender}}</td>
+                <td>{{specificRelatives.key}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

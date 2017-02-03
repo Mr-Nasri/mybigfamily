@@ -13,18 +13,22 @@ var router_1 = require('@angular/router');
 var family_service_1 = require("../services/family.service");
 var SearchComponent = (function () {
     function SearchComponent(route, familyService) {
+        var _this = this;
         this.route = route;
         this.familyService = familyService;
         this.familyId = localStorage.getItem('currentFamily');
         this.city = '';
+        this.familyService.getMembers(this.familyId).subscribe(function (data) { _this.members = data.json(); console.log(data.json()); }, function (err) { console.log('Error : ' + err); });
     }
     SearchComponent.prototype.onSearchInCity = function (event) {
         var _this = this;
         event.preventDefault();
-        this.familyService.searchInCity(this.familyId, this.city).subscribe(function (data) { _this.members = data.json(); console.log(_this.members); }, function (err) { console.log('Error : ' + err); });
+        this.familyService.searchInCity(this.familyId, this.city).subscribe(function (data) { _this.membersInCity = data.json(); console.log(_this.membersInCity); }, function (err) { console.log('Error : ' + err); });
     };
-    SearchComponent.prototype.findMailingList = function (event) {
-        console.log("findMailingList");
+    SearchComponent.prototype.findRelatives = function (event) {
+        var _this = this;
+        event.preventDefault();
+        this.familyService.findRelatives(this.familyId, this.person).subscribe(function (data) { _this.relatives = data.json(); console.log(_this.relatives); }, function (err) { console.log('Error : ' + err); });
     };
     SearchComponent = __decorate([
         core_1.Component({

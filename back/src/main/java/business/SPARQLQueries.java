@@ -9,6 +9,7 @@ import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
@@ -49,7 +50,7 @@ public class SPARQLQueries {
 		  return members;
 	}
 	
-public static List<Resource> searchMembersInCity(String familyId, String city){
+	public static List<Resource> searchMembersInCity(String familyId, String city){
 		
 		ArrayList<Resource> members = new ArrayList<>();
 		String queryString = "prefix f: <http://familytree/ns/>" +
@@ -61,6 +62,127 @@ public static List<Resource> searchMembersInCity(String familyId, String city){
 		
 		
 		Model model = RdfsModel.getModel();
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+
+
+	public static List<Resource> searchAunts(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasAunt ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+		  Query query = QueryFactory.create(queryString) ;
+		  System.out.println("creating Query : " + queryString);
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchUncles(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasUncle ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+		  Query query = QueryFactory.create(queryString) ;
+		  System.out.println("creating Query : " + queryString);
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchCousins(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasCousin ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+		  Query query = QueryFactory.create(queryString) ;
+		  System.out.println("creating Query : " + queryString);
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchGrandParents(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasGrandParent ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+			System.out.println("creating Query : " + queryString);
 		  Query query = QueryFactory.create(queryString) ;
 		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
 		    ResultSet results = qexec.execSelect() ;

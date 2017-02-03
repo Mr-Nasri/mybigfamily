@@ -11,23 +11,32 @@ import {Family} from "../models/Family";
 })
 export class SearchComponent  {
     constructor(private route: ActivatedRoute, private familyService : FamilyService) {
-
+        this.familyService.getMembers(this.familyId).subscribe(
+            data => {this.members = data.json(); console.log(data.json())},
+            err => { console.log('Error : ' + err) }
+        );
     }
-
+    members : any;
     familyId : string = localStorage.getItem('currentFamily');
+
+
     city = '';
-    members : Array<Member>;
-
-
+    membersInCity : Array<Member>;
     onSearchInCity(event: Event){
         event.preventDefault();
         this.familyService.searchInCity(this.familyId, this.city).subscribe(
-            data => {this.members = data.json(); console.log(this.members)},
+            data => {this.membersInCity = data.json(); console.log(this.membersInCity)},
             err => { console.log('Error : ' + err) }
         );
     }
 
-    findMailingList(event: Event){
-        console.log("findMailingList");
+    person : string;
+    relatives : any;
+    findRelatives(event: Event){
+        event.preventDefault();
+        this.familyService.findRelatives(this.familyId, this.person).subscribe(
+            data => {this.relatives = data.json(); console.log(this.relatives)},
+            err => { console.log('Error : ' + err) }
+        );
     }
 }
