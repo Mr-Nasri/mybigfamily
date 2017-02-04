@@ -1,0 +1,31 @@
+<h4>Looking for specific individual :</h4><br>
+<form #form="ngForm">
+    <div class="form-group">
+        <label for="familyName">Anchestre familyName :</label>
+        <input type="text" class="form-control" id="familyName"
+
+               [(ngModel)]="familyName" name="familyName">
+    </div>
+    <div class="form-group">
+        <label for="name">Anchestre Name :</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="name" name="name">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="find($event)" [disabled]="!form.form.valid">Find</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <span *ngIf="result" class="danger"> {{danger}}  </span>
+</form>
+
+
+<br><br>
+<table>
+    <thead>
+    <th>Found :</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{result}}</td>
+    </tr>
+    </tbody>
+</table>

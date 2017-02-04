@@ -22,9 +22,14 @@ var getFamily_component_1 = require('./components/getFamily.component');
 var about_component_1 = require('./components/about.component');
 var search_component_1 = require("./components/search.component");
 var header_component_1 = require('./components/header.component');
+var getByName_component_1 = require('./components/getByName.component');
+var getCommon_component_1 = require('./components/getCommon.component');
+var getAnchestry_component_1 = require('./components/getAnchestry.component');
+var anchestry_service_1 = require('./services/anchestry.service');
 var family_service_1 = require('./services/family.service');
 var login_service_1 = require("./services/login.service");
 var addMember_component_1 = require("./components/addMember.component");
+var myFamily_component_1 = require("./components/myFamily.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var keys_pipe_1 = require("./pipes/keys.pipe");
 var AppModule = (function () {
@@ -34,9 +39,9 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule, http_1.JsonpModule, router_1.RouterModule.forRoot(app_routes_1.Routes)],
             declarations: [app_component_1.AppComponent, home_component_1.HomeComponent, createFamily_component_1.CreateFamilyComponent, getFamily_component_1.GetFamilyComponent, search_component_1.SearchComponent, about_component_1.AboutComponent, header_component_1.HeaderComponent,
-                addMember_component_1.AddMemberComponent, keys_pipe_1.KeysPipe],
+                addMember_component_1.AddMemberComponent, keys_pipe_1.KeysPipe, getAnchestry_component_1.GetAnchestryComponent, getCommon_component_1.GetCommonComponent, getByName_component_1.GetByNameComponent, myFamily_component_1.MyFamilyComponent],
             bootstrap: [app_component_1.AppComponent],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, family_service_1.FamilyService, login_service_1.LoginService, auth_guard_1.AuthGuard]
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, family_service_1.FamilyService, login_service_1.LoginService, anchestry_service_1.AnchestryService, auth_guard_1.AuthGuard]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

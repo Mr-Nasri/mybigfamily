@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1>All family Members</h1>
 
-</body>
-</html>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>BirthDate</th>
+        <th>City</th>
+        <th>Profession</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Gender</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let member of members">
+    <tr>
+        <td>{{member.firstName}}</td>
+        <td>{{member.lastName}}</td>
+        <td>{{member.birthDate | date}}</td>
+        <td>{{member.city}}</td>
+        <td>{{member.profession}}</td>
+        <td>{{member.phone}}</td>
+        <td>{{member.email}}</td>
+        <td>{{member.gender}}</td>
+    </tr>
+    </tbody>
+</table>

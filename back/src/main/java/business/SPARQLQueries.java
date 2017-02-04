@@ -13,13 +13,14 @@ import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.util.FileManager;
 
 import model.RdfsModel;
 
 public class SPARQLQueries {
 	
 	
-	public static List<String> getMembersById(String familyId){
+	public static List<String> getMembersNameById(String familyId){
 		
 		ArrayList<String> members = new ArrayList<>();
 		String queryString = "prefix f: <http://familytree/ns/>" +
@@ -49,6 +50,37 @@ public class SPARQLQueries {
 		  }
 		  return members;
 	}
+	
+public static List<Resource> getMembersById(String familyId){
+		
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m" +
+						"}";
+		
+		
+		Model model = RdfsModel.getModel();
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	
 	
 	public static List<Resource> searchMembersInCity(String familyId, String city){
 		
@@ -80,6 +112,35 @@ public class SPARQLQueries {
 		  return members;
 	}
 
+	public static List<Resource> findAnchestrByName(String name){
+		
+	ArrayList<Resource> members = new ArrayList<>();
+	String queryString = "prefix f: <http://familytree/ns/>" +
+					"prefix m: <http://familytree/member/ns/>" +
+					"select ?m where {" +
+					 "?m m:hasFistName \"" +  name + "\"" +
+					"}";
+	
+	FileManager.get().addLocatorClassLoader(SPARQLQueries.class.getClassLoader());
+    Model model= FileManager.get().loadModel("/home/user/todoWeb/new/mybigfamily/back/data/ged.rdf");
+	
+	  Query query = QueryFactory.create(queryString) ;
+	  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+	    ResultSet results = qexec.execSelect() ;
+	    for ( ; results.hasNext() ; )
+	    {
+	      QuerySolution soln = results.nextSolution() ;
+	      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+	      //Person test = x.as(Person.c);
+	      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+	      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+	      System.out.println(r.toString());
+	      members.add(r);
+	      //System.out.println("SPARQL" + l.toString());
+	    }
+	  }
+	  return members;
+    }
 
 	public static List<Resource> searchAunts(String familyId, String member) {
 		ArrayList<Resource> members = new ArrayList<>();

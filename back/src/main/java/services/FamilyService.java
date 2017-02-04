@@ -76,15 +76,36 @@ public class FamilyService {
 		}		
     }
 	
-	@RequestMapping(value="/members/get/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-    public List<String> getMembers(@PathVariable String id) {
+	@RequestMapping(value="/members/getNames/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public List<String> getMembersName(@PathVariable String id) {
 		String familyURI = "http://familytree/" + id;
 		Model model = RdfsModel.getModel();
 		Resource familyResource = model.createResource(familyURI);
 		
 		if(model.contains(familyResource,RdfsModel.hasId)){
 			System.out.println("yes");
-			return SPARQLQueries.getMembersById(id);
+			return SPARQLQueries.getMembersNameById(id);
+		}
+		else{
+			System.out.println("no");
+			return null;
+		}		
+    }
+	
+	@RequestMapping(value="/members/getAll/{familyId}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
+    public List<Person> getAllMembers(@PathVariable String familyId) {
+		String familyURI = "http://familytree/" + familyId;
+		Model model = RdfsModel.getModel();
+		Resource familyResource = model.createResource(familyURI);
+		
+		if(model.contains(familyResource,RdfsModel.hasId)){
+			System.out.println("search members for family : " + familyId);
+			List<Resource> memberResources = SPARQLQueries.getMembersById(familyId);
+			List<Person> members = new ArrayList<Person>();
+			for(Resource r : memberResources){
+				members.add(RdfsModel.createMember(r));
+			}
+			return members;
 		}
 		else{
 			System.out.println("no");
@@ -182,7 +203,7 @@ public class FamilyService {
 			}
 			System.out.println("GrandParentsize : " + grandParents.size());
 			relatives.put("GrandParent", grandParents);
-			//relatives.
+			//relatives
 			System.out.println("size : " + relatives.size());
 			return relatives;
 		}
