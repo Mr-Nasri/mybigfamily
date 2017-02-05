@@ -88,8 +88,8 @@ public class RdfsModel {
     	
     	
     	
-    	hasSibling = model.createObjectProperty(MEMBER_NAMESPACE + "hasSibling");
-    	hasSpouse = model.createObjectProperty(MEMBER_NAMESPACE + "hasSpouse");
+    	hasSibling = model.createSymmetricProperty(MEMBER_NAMESPACE + "hasSibling");
+    	hasSpouse = model.createSymmetricProperty(MEMBER_NAMESPACE + "hasSpouse");
     	hasParent = model.createObjectProperty(MEMBER_NAMESPACE + "hasParent");
     	hasChild = model.createObjectProperty(MEMBER_NAMESPACE + "hasChild");
     	
@@ -171,16 +171,21 @@ public class RdfsModel {
 		member.setFirstName(memberResource.getProperty(hasFistName).getString());
 		member.setLastName(memberResource.getProperty(hasLastName).getString());
 		try {
-			System.out.println("date : " + memberResource.getProperty(hasBirthDate).getString());
-			member.setBirthDate(formatter.parse(memberResource.getProperty(hasBirthDate).getString()));
+			if(memberResource.hasProperty(hasBirthDate))
+				member.setBirthDate(formatter.parse(memberResource.getProperty(hasBirthDate).getString()));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		member.setCity(memberResource.getProperty(liveIn).getString());
-		member.setProfession(memberResource.getProperty(hasProfession).getString());
-		member.setEmail(memberResource.getProperty(hasEmail).getString());
-		member.setPhone(memberResource.getProperty(hasPhone).getString());
-		member.setGender(memberResource.getProperty(hasGender).getString());
+		if(memberResource.hasProperty(liveIn))
+			member.setCity(memberResource.getProperty(liveIn).getString());
+		if(memberResource.hasProperty(hasProfession))
+			member.setProfession(memberResource.getProperty(hasProfession).getString());
+		if(memberResource.hasProperty(hasEmail))
+			member.setEmail(memberResource.getProperty(hasEmail).getString());
+		if(memberResource.hasProperty(hasPhone))
+			member.setPhone(memberResource.getProperty(hasPhone).getString());
+		if(memberResource.hasProperty(hasGender))
+			member.setGender(memberResource.getProperty(hasGender).getString());
 		return member;
 	}
 	

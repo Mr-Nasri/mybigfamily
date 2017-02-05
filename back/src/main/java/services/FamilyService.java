@@ -46,15 +46,13 @@ public class FamilyService {
 
     	// create the resource
     	Resource familyResource = model.createResource(familyURI, RdfsModel.family);
-    	
+
     	Resource creatorResource = RdfsModel.createMember(family.getCreator());
     	familyResource.addProperty(RdfsModel.hasCreator, creatorResource);
     	familyResource.addProperty(RdfsModel.hasId, familyID);
     	familyResource.addProperty(RdfsModel.hasName, family.getName());
     	
     	RdfsModel.insertData();
-    	//model.write(System.out);
-    	
     	
     	return familyID;
     }
@@ -201,10 +199,36 @@ public class FamilyService {
 				System.out.println("search grandParents of : " + memberURI);
 				grandParents.add(RdfsModel.createMember(r));
 			}
-			System.out.println("GrandParentsize : " + grandParents.size());
 			relatives.put("GrandParent", grandParents);
-			//relatives
-			System.out.println("size : " + relatives.size());
+			
+			List<Person> parents = new ArrayList<Person>();
+			List<Resource> parentResources = SPARQLQueries.searchParents(familyId, memberURI);
+			for(Resource r : parentResources){
+				parents.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Parent", parents);
+			
+			List<Person> childs = new ArrayList<Person>();
+			List<Resource> childResources = SPARQLQueries.searchChilds(familyId, memberURI);
+			for(Resource r : childResources){
+				childs.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Child", childs);
+			
+			List<Person> spouses = new ArrayList<Person>();
+			List<Resource> spouseResources = SPARQLQueries.searchSpouses(familyId, memberURI);
+			for(Resource r : spouseResources){
+				spouses.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Spouse", spouses);
+			
+			List<Person> siblings = new ArrayList<Person>();
+			List<Resource> siblingResources = SPARQLQueries.searchSiblings(familyId, memberURI);
+			for(Resource r : siblingResources){
+				siblings.add(RdfsModel.createMember(r));
+			}
+			relatives.put("Sibling", siblings);
+			
 			return relatives;
 		}
 		else{

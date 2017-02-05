@@ -261,5 +261,125 @@ public static List<Resource> getMembersById(String familyId){
 		  }
 		  return members;
 	}
+	
+	public static List<Resource> searchParents(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasParent ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+			System.out.println("creating Query : " + queryString);
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchChilds(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasChild ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+			System.out.println("creating Query : " + queryString);
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchSpouses(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasSpouse ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+			System.out.println("creating Query : " + queryString);
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
+	
+	public static List<Resource> searchSiblings(String familyId, String member) {
+		ArrayList<Resource> members = new ArrayList<>();
+		String queryString = "prefix f: <http://familytree/ns/>" +
+						"prefix m: <http://familytree/member/ns/>" +
+						"select ?m where {" +
+						 "<http://familytree/" + familyId + "> f:hasMember ?m." +
+						 "<" +  member + "> m:hasSibling ?m" +
+						"}";
+		
+		
+		InfModel model = InferenceRules.getInfModel();
+			System.out.println("creating Query : " + queryString);
+		  Query query = QueryFactory.create(queryString) ;
+		  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
+		    ResultSet results = qexec.execSelect() ;
+		    for ( ; results.hasNext() ; )
+		    {
+		      QuerySolution soln = results.nextSolution() ;
+		      //RDFNode x = soln.get("m") ;       // Get a result variable by name.
+		      //Person test = x.as(Person.c);
+		      Resource r = soln.getResource("m") ; // Get a result variable - must be a resource
+		      //Literal l = soln.getLiteral("name") ;   // Get a result variable - must be a literal
+		      System.out.println(r.toString());
+		      members.add(r);
+		      //System.out.println("SPARQL" + l.toString());
+		    }
+		  }
+		  return members;
+	}
 
 }
