@@ -39,6 +39,9 @@ public class InferenceRules {
 	}
 	
 	public static InfModel getInfModel() {
+		Reasoner reasoner = new GenericRuleReasoner( Rule.rulesFromURL( RULES_FILE ) );
+		
+		infModel = ModelFactory.createInfModel( reasoner, RdfsModel.getModel() );
 		return infModel;
 	}
 		

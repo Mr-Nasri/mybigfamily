@@ -199,6 +199,14 @@ public class RdfsModel {
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		model.write(bw);
+		
+		try {
+			bw.close();
+			fw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

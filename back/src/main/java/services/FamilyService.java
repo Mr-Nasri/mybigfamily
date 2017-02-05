@@ -76,6 +76,7 @@ public class FamilyService {
 	
 	@RequestMapping(value="/members/getNames/{id}", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
     public List<String> getMembersName(@PathVariable String id) {
+		
 		String familyURI = "http://familytree/" + id;
 		Model model = RdfsModel.getModel();
 		Resource familyResource = model.createResource(familyURI);
