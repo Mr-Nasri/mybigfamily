@@ -25,15 +25,17 @@ import { FamilyService }          from './services/family.service';
 import {LoginService} from "./services/login.service";
 
 import {AddMemberComponent} from "./components/addMember.component";
+import {MyFamilyComponent} from "./components/myFamily.component";
 import {AuthGuard} from "./guards/auth.guard";
 import {KeysPipe} from "./pipes/keys.pipe";
+
 
 
 
 @NgModule({
   imports:      [ BrowserModule, CommonModule, FormsModule, HttpModule, JsonpModule, RouterModule.forRoot(Routes) ],
   declarations: [ AppComponent, HomeComponent, CreateFamilyComponent, GetFamilyComponent, SearchComponent, AboutComponent, HeaderComponent,
-                  AddMemberComponent, KeysPipe, GetAnchestryComponent, GetCommonComponent, GetByNameComponent ],
+                  AddMemberComponent, KeysPipe, GetAnchestryComponent, GetCommonComponent, GetByNameComponent, MyFamilyComponent ],
   bootstrap:    [ AppComponent ],
   providers: [{provide: APP_BASE_HREF, useValue : '/' }, FamilyService, LoginService, AnchestryService, AuthGuard]
 })

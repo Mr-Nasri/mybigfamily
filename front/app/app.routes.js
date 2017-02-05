@@ -6,6 +6,7 @@ var about_component_1 = require('./components/about.component');
 var addMember_component_1 = require("./components/addMember.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var search_component_1 = require("./components/search.component");
+var myFamily_component_1 = require("./components/myFamily.component");
 var getByName_component_1 = require("./components/getByName.component");
 var getCommon_component_1 = require("./components/getCommon.component");
 var getAnchestry_component_1 = require("./components/getAnchestry.component");
@@ -19,5 +20,6 @@ exports.Routes = [
     { path: 'getCommon', component: getCommon_component_1.GetCommonComponent },
     { path: 'addMember', component: addMember_component_1.AddMemberComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'search', component: search_component_1.SearchComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'myFamily', component: myFamily_component_1.MyFamilyComponent, canActivate: [auth_guard_1.AuthGuard] },
 ];
 //# sourceMappingURL=app.routes.js.map

@@ -7,6 +7,7 @@ back/.settings/
 back/.idea/
 back/*.iml
 back/*.iws
+front/.idea/
 
 # Mac
 .DS_Store
