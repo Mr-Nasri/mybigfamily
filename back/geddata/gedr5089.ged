@@ -1,0 +1,705 @@
+0 HEAD
+1 SOUR BROSKEEP
+2 VERS 5.2 WINDOWS
+1 DEST BROSKEEP
+1 DATE 14 NOV 1996
+1 CHAR IBMPC
+1 FILE A:\DOLE.GED
+0 @I1@ INDI
+1 NAME Robert Joseph /Dole/
+1 SEX M
+1 OCCU U.S. Senator
+1 BIRT
+2 DATE 22 JUL 1923
+2 PLAC Russell, Kansas
+1 NOTE He ran for President in 1996.
+1 FAMS @F2@
+1 FAMS @F1@
+1 FAMC @F3@
+0 @I2@ INDI
+1 NAME Mary Elizabeth /Hanford/
+1 SEX F
+1 OCCU Pres, American Red Cross
+1 BIRT
+2 DATE 1936
+2 PLAC Rowan County, North Carolina
+1 NOTE She served as Secretary of Transportation in the Reagan administration, and
+2 CONT Secretary of Labor in the Bush administration.
+1 FAMS @F1@
+1 FAMC @F6@
+0 @I3@ INDI
+1 NAME Phyllis  /Holden/
+1 SEX F
+1 OCCU nurse
+1 FAMS @F2@
+0 @I4@ INDI
+1 NAME Robin  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 18 OCT 1954
+2 PLAC Russell, Kansas
+1 FAMC @F2@
+0 @I5@ INDI
+1 NAME Doran  /Dole/
+1 SEX M
+1 OCCU farmer
+1 BIRT
+2 DATE 19 AUG 1900
+2 PLAC Kansas
+1 DEAT
+2 DATE 1975
+2 PLAC Washington, DC
+1 FAMS @F3@
+1 FAMC @F4@
+0 @I6@ INDI
+1 NAME Bina M. /Talbott/
+1 SEX F
+1 BIRT
+2 DATE APRIL 1903
+2 PLAC Kansas
+1 FAMS @F3@
+1 FAMC @F5@
+0 @I7@ INDI
+1 NAME Gloria  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 1922
+2 PLAC Russell, Kansas
+1 FAMC @F3@
+0 @I8@ INDI
+1 NAME Kenny  /Dole/
+1 SEX M
+1 FAMC @F3@
+0 @I9@ INDI
+1 NAME Norma Jean /Dole/
+1 SEX F
+1 FAMC @F3@
+0 @I10@ INDI
+1 NAME Robert G. /Dole/
+1 SEX M
+1 OCCU farmer
+1 BIRT
+2 DATE 1875
+2 PLAC Ohio
+1 NOTE His father was born in Ohio, his mother in New York.
+1 FAMS @F4@
+0 @I11@ INDI
+1 NAME Margaret  //
+1 SEX F
+1 BIRT
+2 DATE 1881
+2 PLAC New York
+1 FAMS @F4@
+0 @I12@ INDI
+1 NAME Floyd  /Dole/
+1 SEX M
+1 OCCU schoolteacher
+1 BIRT
+2 DATE 1899
+2 PLAC Kansas
+1 FAMC @F4@
+0 @I13@ INDI
+1 NAME Ethel  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 1904
+2 PLAC Kansas
+1 FAMC @F4@
+0 @I14@ INDI
+1 NAME Mildred  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 1909
+2 PLAC Kansas
+1 FAMC @F4@
+0 @I15@ INDI
+1 NAME Florence  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 1915
+2 PLAC Kansas
+1 FAMC @F4@
+0 @I16@ INDI
+1 NAME Gladys  /Dole/
+1 SEX F
+1 BIRT
+2 DATE 1918
+2 PLAC Kansas
+1 FAMC @F4@
+0 @I17@ INDI
+1 NAME Joseph W. /Talbott/
+1 SEX M
+1 OCCU farmer
+1 BIRT
+2 DATE 1877
+2 PLAC Indiana
+1 NOTE His father was born in Indiana, his mother in Kentucky.
+1 FAMS @F5@
+0 @I18@ INDI
+1 NAME Elva  //
+1 SEX F
+1 BIRT
+2 DATE 1885
+2 PLAC Kansas
+1 NOTE Her father was born in Illinois, her mother in Pennsylvania.
+1 FAMS @F5@
+0 @I19@ INDI
+1 NAME Zelda  /Talbott/
+1 SEX F
+1 BIRT
+2 DATE 1906
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I20@ INDI
+1 NAME Joseph W. /Talbott/
+1 SEX M
+1 BIRT
+2 DATE 1907
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I21@ INDI
+1 NAME Marvin  /Talbott/
+1 SEX M
+1 BIRT
+2 DATE 1909
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I22@ INDI
+1 NAME Mildred  /Talbott/
+1 SEX F
+1 BIRT
+2 DATE 1913
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I23@ INDI
+1 NAME Mary A. /Talbott/
+1 SEX F
+1 BIRT
+2 DATE 1915
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I24@ INDI
+1 NAME Jean  /Talbott/
+1 SEX F
+1 BIRT
+2 DATE 1917
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I25@ INDI
+1 NAME unnamed  //
+1 SEX F
+1 BIRT
+2 DATE 1920
+2 PLAC Kansas
+1 FAMC @F5@
+0 @I26@ INDI
+1 NAME John  /Van Hanford/
+1 SEX M
+1 OCCU florist
+1 BIRT
+2 DATE 30 JUL 1893
+2 PLAC Carbondale, Illinois
+1 DEAT
+2 DATE 1981
+2 PLAC Salisbury, North Carolina
+1 FAMS @F6@
+1 FAMC @F8@
+0 @I27@ INDI
+1 NAME Mary Ella /Cathey/
+1 SEX F
+1 BIRT
+2 DATE 1901
+2 PLAC Rowan County, North Carolina
+1 FAMS @F6@
+1 FAMC @F9@
+0 @I28@ INDI
+1 NAME John  /Van Hanford/
+1 SEX M
+1 OCCU florist
+1 BIRT
+2 DATE 1923
+2 PLAC Rowan County, North Carolina
+1 NOTE He graduated from Duke University, and served in the U.S. Navy during World
+2 CONT War II.
+1 FAMS @F7@
+1 FAMC @F6@
+0 @I29@ INDI
+1 NAME Dottie  /Groome/
+1 SEX F
+1 FAMS @F7@
+0 @I30@ INDI
+1 NAME John  /Van Hanford/
+1 SEX M
+1 OCCU Congressional staffer
+1 BIRT
+2 DATE 1954
+1 NOTE He graduated from the University of North Carolina at Chapel Hill, where he
+2 CONT was a Phi Beta Kappa.  He received his Master's in Divinity at Gordon-Conwell
+2 CONT Theological Seminary.  In 1987, he went to work as a staffer for Senator
+2 CONT Richard Lugar of Indiana.
+1 FAMC @F7@
+0 @I31@ INDI
+1 NAME Joseph Groome /Hanford/
+1 SEX M
+1 OCCU broadcaster
+1 BIRT
+2 DATE 1956
+1 NOTE He studied at Duke University and the University of Florida, and founded
+2 CONT Florida Corporate Television in Jacksonville.
+1 FAMC @F7@
+0 @I32@ INDI
+1 NAME John Wilbur /Hanford/
+1 SEX M
+1 OCCU florist
+1 BIRT
+2 DATE 19 SEP 1848
+2 PLAC near Albany, New York
+1 NOTE He is said to be descended from Rev. Thomas Hanford of Wooles Hall,
+2 CONT Eckington, England, who came to Connecticut about 1653.  He moved to
+2 CONT Carbondale, Illinois, as a young man, where he operated a general store.  He
+2 CONT served as an alderman there, and was also City Treasurer.  In 1899, he
+2 CONT removed to Grand Junction, Colorado, where he lived until 1905.  Due to his
+2 CONT wife's illness, he removed to the warmer climate of Salisbury, North
+2 CONT Carolina.
+1 FAMS @F8@
+0 @I33@ INDI
+1 NAME Emma Persis /VanAlstine/
+1 SEX F
+1 BIRT
+2 PLAC Winona, Minnesota
+1 FAMS @F8@
+0 @I34@ INDI
+1 NAME Joseph Pinkney /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1864
+1 DEAT
+2 DATE 1952
+1 FAMS @F9@
+1 FAMS @F12@
+1 FAMC @F13@
+0 @I35@ INDI
+1 NAME Cora Lee /Alexander/
+1 SEX F
+1 BIRT
+2 DATE 1874
+1 DEAT
+2 DATE 1973
+1 FAMS @F9@
+1 FAMC @F19@
+0 @I36@ INDI
+1 NAME Robert Alexander /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1898
+1 DEAT
+2 DATE 1973
+1 FAMS @F10@
+1 FAMC @F9@
+0 @I37@ INDI
+1 NAME Joseph Junius /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1904
+1 FAMS @F11@
+1 FAMC @F9@
+0 @I38@ INDI
+1 NAME Vernon Andrew /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1907
+1 DEAT
+2 DATE 1930
+1 NOTE He was killed in by a drunk driver shortly after graduating from college.  His
+2 CONT parents sent the money from his life insurance to build a new wing for a
+2 CONT mission hospital in far-off Pakistan.
+1 FAMC @F9@
+0 @I39@ INDI
+1 NAME Charlotte  /Bristow/
+1 SEX F
+1 BIRT
+2 DATE 1908
+2 PLAC Chattanooga, Tennessee
+1 DEAT
+2 DATE 1989
+1 FAMS @F10@
+0 @I40@ INDI
+1 NAME Robert  /Cathey/
+1 SEX M
+1 FAMC @F10@
+0 @I41@ INDI
+1 NAME Anita  /Umberger/
+1 SEX F
+1 BIRT
+2 PLAC Concord, North Carolina
+1 FAMS @F11@
+0 @I42@ INDI
+1 NAME Mary Anita /Cathey/
+1 SEX F
+1 BIRT
+2 DATE 1937
+1 FAMC @F11@
+0 @I43@ INDI
+1 NAME Joseph Vernon /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1944
+1 FAMC @F11@
+0 @I44@ INDI
+1 NAME Ella  /Cornelius/
+1 SEX F
+1 FAMS @F12@
+0 @I45@ INDI
+1 NAME Minnie Augusta /Cathey/
+1 SEX F
+1 FAMC @F12@
+0 @I46@ INDI
+1 NAME James Franklin /Cathey/
+1 SEX M
+1 FAMC @F12@
+0 @I47@ INDI
+1 NAME Henry Monroe /Cathey/
+1 SEX M
+1 FAMC @F12@
+0 @I48@ INDI
+1 NAME Henry Alexander /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1808
+1 DEAT
+2 DATE 1873
+1 FAMS @F14@
+1 FAMS @F13@
+1 FAMC @F15@
+0 @I49@ INDI
+1 NAME Nancy Melvina /Cornelius/
+1 SEX F
+1 BIRT
+2 DATE 1821
+1 DEAT
+2 DATE 1906
+1 FAMS @F13@
+0 @I50@ INDI
+1 NAME Rebecca  /Johnson/
+1 SEX F
+1 FAMS @F14@
+0 @I51@ INDI
+1 NAME Archibald  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1769
+1 DEAT
+2 DATE 1811
+1 FAMS @F15@
+1 FAMC @F16@
+0 @I52@ INDI
+1 NAME Mary  /Caldwell/
+1 SEX F
+1 FAMS @F15@
+0 @I53@ INDI
+1 NAME John Caldwell /Cathey/
+1 SEX M
+1 FAMC @F15@
+0 @I54@ INDI
+1 NAME Archibald Pinkney /Cathey/
+1 SEX M
+1 FAMC @F15@
+0 @I55@ INDI
+1 NAME William Caldwell /Cathey/
+1 SEX M
+1 FAMC @F15@
+0 @I56@ INDI
+1 NAME Nancy Agnes /Cathey/
+1 SEX F
+1 FAMC @F15@
+0 @I57@ INDI
+1 NAME Andrew Caldwell /Cathey/
+1 SEX M
+1 FAMC @F15@
+0 @I58@ INDI
+1 NAME John  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1752
+1 DEAT
+2 DATE 1788
+1 FAMS @F16@
+1 FAMC @F17@
+0 @I59@ INDI
+1 NAME Mary  /Henry/
+1 SEX F
+1 FAMS @F16@
+0 @I60@ INDI
+1 NAME Eleanor  /Cathey/
+1 SEX F
+1 NOTE She was the great grandmother of Vice President Alben Barkley.
+1 FAMS @F18@
+1 FAMC @F16@
+0 @I61@ INDI
+1 NAME Mary  /Cathey/
+1 SEX F
+1 FAMC @F16@
+0 @I62@ INDI
+1 NAME Elizabeth  /Cathey/
+1 SEX F
+1 FAMC @F16@
+0 @I63@ INDI
+1 NAME Jean  /Cathey/
+1 SEX F
+1 FAMC @F16@
+0 @I64@ INDI
+1 NAME John  /Cathey/
+1 SEX M
+1 FAMC @F16@
+0 @I65@ INDI
+1 NAME George  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1692
+2 PLAC Ulster, Ireland
+1 DEAT
+2 DATE 1777
+2 PLAC Rowan County, North Carolina
+1 NOTE He came to America from Ireland in the 1740's, living first in Augusta
+2 CONT County, Virginia, then settling in Rowan County, North Carolina.
+1 FAMS @F17@
+0 @I66@ INDI
+1 NAME Jean  //
+1 SEX F
+1 FAMS @F17@
+0 @I67@ INDI
+1 NAME Andrew  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1721
+1 DEAT
+2 DATE 1785
+1 FAMC @F17@
+0 @I68@ INDI
+1 NAME George  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1724
+1 DEAT
+2 DATE 1801
+1 FAMC @F17@
+0 @I69@ INDI
+1 NAME Archibald  /Cathey/
+1 SEX M
+1 BIRT
+2 DATE 1737
+1 DEAT
+2 DATE 1777
+1 FAMC @F17@
+0 @I70@ INDI
+1 NAME Esther  /Cathey/
+1 SEX F
+1 BIRT
+2 DATE 1742
+1 DEAT
+2 DATE 1825
+1 FAMC @F17@
+0 @I71@ INDI
+1 NAME Eleanor  /Cathey/
+1 SEX F
+1 FAMC @F17@
+0 @I72@ INDI
+1 NAME Margaret  /Cathey/
+1 SEX F
+1 BIRT
+2 DATE 1735
+1 DEAT
+2 DATE 1794
+1 FAMC @F17@
+0 @I73@ INDI
+1 NAME Frances  /Cathey/
+1 SEX F
+1 FAMC @F17@
+0 @I74@ INDI
+1 NAME Robert  /Barkley/
+1 SEX M
+1 FAMS @F18@
+0 @I75@ INDI
+1 NAME Junius Milton /Alexander/
+1 SEX M
+1 BIRT
+2 DATE 1837
+2 PLAC Loray, North Carolina
+1 NOTE He was an elder at Concord Presbyterian Church in Rowan County, North
+2 CONT Carolina.
+1 FAMS @F19@
+1 FAMS @F20@
+1 FAMC @F21@
+0 @I76@ INDI
+1 NAME Elizabeth Evaline /McLain/
+1 SEX F
+1 FAMS @F19@
+0 @I77@ INDI
+1 NAME Sarah Louise /Gibson/
+1 SEX F
+1 FAMS @F20@
+0 @I78@ INDI
+1 NAME Henry  /Alexander/
+1 SEX M
+1 OCCU farmer
+1 BIRT
+2 DATE 1863
+1 NOTE He was nominated for Vice President of the United States by the Farmer Labor
+2 CONT Party in 1928, but he declined to run due to ill health.
+1 FAMC @F20@
+0 @I79@ INDI
+1 NAME Abner  /Alexander/
+1 SEX M
+1 BIRT
+2 DATE 1868
+1 FAMC @F20@
+0 @I80@ INDI
+1 NAME Levi Nelson /Alexander/
+1 SEX M
+1 FAMS @F21@
+0 @I81@ INDI
+1 NAME Hannah  /Lewis/
+1 SEX F
+1 FAMS @F21@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 MARR
+2 DATE  6 DEC 1975
+2 PLAC Washington, DC
+0 @F2@ FAM
+1 HUSB @I1@
+1 WIFE @I3@
+1 CHIL @I4@
+1 MARR
+2 DATE 1947
+2 PLAC Concord, New Hampshire
+1 DIV 
+2 TYPE DIVORCE
+2 DATE 1972
+0 @F3@ FAM
+1 HUSB @I5@
+1 WIFE @I6@
+1 CHIL @I7@
+1 CHIL @I1@
+1 CHIL @I8@
+1 CHIL @I9@
+1 MARR
+2 DATE FEB 1921
+2 PLAC Russell, Kansas
+0 @F4@ FAM
+1 HUSB @I10@
+1 WIFE @I11@
+1 CHIL @I12@
+1 CHIL @I5@
+1 CHIL @I13@
+1 CHIL @I14@
+1 CHIL @I15@
+1 CHIL @I16@
+1 MARR
+2 DATE CIRCA 1898
+0 @F5@ FAM
+1 HUSB @I17@
+1 WIFE @I18@
+1 CHIL @I6@
+1 CHIL @I19@
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHIL @I22@
+1 CHIL @I23@
+1 CHIL @I24@
+1 CHIL @I25@
+1 MARR
+2 DATE CIRCA 1901
+0 @F6@ FAM
+1 HUSB @I26@
+1 WIFE @I27@
+1 CHIL @I28@
+1 CHIL @I2@
+1 MARR
+2 DATE 1917
+2 PLAC Rowan County, North Carolina
+0 @F7@ FAM
+1 HUSB @I28@
+1 WIFE @I29@
+1 CHIL @I30@
+1 CHIL @I31@
+0 @F8@ FAM
+1 HUSB @I32@
+1 WIFE @I33@
+1 CHIL @I26@
+0 @F9@ FAM
+1 HUSB @I34@
+1 WIFE @I35@
+1 CHIL @I36@
+1 CHIL @I27@
+1 CHIL @I37@
+1 CHIL @I38@
+0 @F10@ FAM
+1 HUSB @I36@
+1 WIFE @I39@
+1 CHIL @I40@
+0 @F11@ FAM
+1 HUSB @I37@
+1 WIFE @I41@
+1 CHIL @I42@
+1 CHIL @I43@
+0 @F12@ FAM
+1 HUSB @I34@
+1 WIFE @I44@
+1 CHIL @I45@
+1 CHIL @I46@
+1 CHIL @I47@
+0 @F13@ FAM
+1 HUSB @I48@
+1 WIFE @I49@
+1 CHIL @I34@
+0 @F14@ FAM
+1 HUSB @I48@
+1 WIFE @I50@
+0 @F15@ FAM
+1 HUSB @I51@
+1 WIFE @I52@
+1 CHIL @I48@
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHIL @I55@
+1 CHIL @I56@
+1 CHIL @I57@
+0 @F16@ FAM
+1 HUSB @I58@
+1 WIFE @I59@
+1 CHIL @I51@
+1 CHIL @I60@
+1 CHIL @I61@
+1 CHIL @I62@
+1 CHIL @I63@
+1 CHIL @I64@
+0 @F17@ FAM
+1 HUSB @I65@
+1 WIFE @I66@
+1 CHIL @I67@
+1 CHIL @I68@
+1 CHIL @I72@
+1 CHIL @I69@
+1 CHIL @I70@
+1 CHIL @I71@
+1 CHIL @I58@
+1 CHIL @I73@
+0 @F18@ FAM
+1 HUSB @I74@
+1 WIFE @I60@
+0 @F19@ FAM
+1 HUSB @I75@
+1 WIFE @I76@
+1 CHIL @I35@
+0 @F20@ FAM
+1 HUSB @I75@
+1 WIFE @I77@
+1 CHIL @I78@
+1 CHIL @I79@
+0 @F21@ FAM
+1 HUSB @I80@
+1 WIFE @I81@
+1 CHIL @I75@
+0 TRLR

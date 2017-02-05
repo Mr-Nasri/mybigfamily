@@ -181,7 +181,9 @@ public class GedcomPrecess {
 
 		    	
 		    	familyResource.addProperty(GedRdfsModel.hasCreator, creatorResource);
+		    	if(wifeResource != null){
 		    	familyResource.addProperty(GedRdfsModel.hasMember, wifeResource);
+		    	}
 		    	//for(Resource r : resourceChild){
 		    	//familyResource.addProperty(GedRdfsModel.hasMember, r);
 		    	//}
