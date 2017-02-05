@@ -44,22 +44,11 @@ public class AnchestryService {
 		//GedcomPrecess.intit("/home/user/todoWeb/mybigfamily/back/gedcom/gedr7420.ged");
 		//Map<String, Person> result = null;
 		try {
-			File folder = new File("/home/user/Bureau/gedData");
-			File[] listOfFiles = folder.listFiles();
 
-			    for (int i = 0; i < listOfFiles.length; i++) {
-			      if (listOfFiles[i].isFile()) {
-			        System.out.println("File " + listOfFiles[i].getName());
-			        
-			      //  GedcomPrecess.getFamiliesMembers("/home/user/Bureau/gedData/ged3.ged");
-			      } else if (listOfFiles[i].isDirectory()) {
-			        System.out.println("Directory " + listOfFiles[i].getName());
-			      }
-			    }
-			    GedcomPrecess.getFamiliesMembers("/home/user/Bureau/gedData/gw.ged");
+			    GedcomPrecess.getFamiliesMembers("geddata/royal92.ged");
 		
 		} catch (IOException | GedcomParserException e) {
-			// TODO Auto-generated catch block
+			// TODO Auto-generated catch block  
 			e.printStackTrace();
 		}
 			
@@ -87,7 +76,7 @@ public class AnchestryService {
 		
 		try {
 
-			data =  GedcomPrecess.getCoupleWithCommonAnchestor("/home/user/Bureau/gedData/ged3.ged");
+			data =  GedcomPrecess.getCoupleWithCommonAnchestor("geddata/royal92.ged");
 		} catch (IOException | GedcomParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

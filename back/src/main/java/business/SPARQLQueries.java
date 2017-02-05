@@ -122,7 +122,7 @@ public static List<Resource> getMembersById(String familyId){
 					"}";
 	
 	FileManager.get().addLocatorClassLoader(SPARQLQueries.class.getClassLoader());
-    Model model= FileManager.get().loadModel("/home/user/todoWeb/new/mybigfamily/back/data/ged.rdf");
+    Model model= FileManager.get().loadModel("data/ged.rdf");
 	
 	  Query query = QueryFactory.create(queryString) ;
 	  try (QueryExecution qexec = QueryExecutionFactory.create(query, model)) {
