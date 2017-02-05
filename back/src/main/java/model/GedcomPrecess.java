@@ -119,11 +119,11 @@ public class GedcomPrecess {
 			    if (fam.getWife() != null) {
 			    	if(fam.getWife().getIndividual() != null && fam.getHusband() != null)
 			    	{
-			    		if(fam.getWife().getIndividual().getNames().get(0).getBasic() != null && !fam.getWife().getIndividual().getNames().get(0).getBasic().equals("")){
+			    		if(fam.getWife().getIndividual().getFormattedName() != null && !fam.getWife().getIndividual().getNames().get(0).getBasic().equals("")){
 			    	
 					    	model.Person person = new Person();
 					    	//familyModel.setName(fam.getHusband().getIndividual().getFormattedName());
-					    	person.setFirstName(fam.getWife().getIndividual().getNames().get(0).getBasic().replaceAll("/", ""));
+					    	person.setFirstName(fam.getWife().getIndividual().getFormattedName().replaceAll("/", ""));
 					    	person.setGender(fam.getWife().getIndividual().getSex().getValue().toString());
 					    	person.setRelation("spouse");
 					    	person.setRelative(fam.getHusband().getIndividual().getNames().get(0).getBasic().replaceAll("/", ""));
