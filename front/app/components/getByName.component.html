@@ -19,13 +19,29 @@
 
 
 <br><br>
-<table>
+<table class="table">
     <thead>
-    <th>Found :</th>
-    </thead>
-    <tbody>
     <tr>
-        <td>{{result}}</td>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>BirthDate</th>
+        <th>City</th>
+        <th>Profession</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Gender</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let memberInCity of membersInCity">
+    <tr>
+        <td>{{memberInCity.firstName}}</td>
+        <td>{{memberInCity.lastName}}</td>
+        <td>{{memberInCity.birthDate | date}}</td>
+        <td>{{memberInCity.city}}</td>
+        <td>{{memberInCity.profession}}</td>
+        <td>{{memberInCity.phone}}</td>
+        <td>{{memberInCity.email}}</td>
+        <td>{{memberInCity.gender}}</td>
     </tr>
     </tbody>
 </table>

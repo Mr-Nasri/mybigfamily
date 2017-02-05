@@ -23,23 +23,13 @@ var GetByNameComponent = (function () {
         this.name = '';
         this.danger = '';
         this.result = '';
+        this.city = '';
     }
     GetByNameComponent.prototype.find = function (event) {
         var _this = this;
         event.preventDefault();
         console.log(this.name);
-        this.anchestryService.getAnchestreByName(this.name).subscribe(function (res) {
-            _this.result = JSON.stringify(res);
-            console.log(_this.result);
-            if (_this.result === '') {
-                _this.danger = 'Sorry Person doesn\'t exist in the KD';
-            }
-            else {
-                _this.danger = '';
-            }
-        }, 
-        //console.log(result);
-        function (err) { console.log('Error : ' + err); });
+        this.anchestryService.getAnchestreByName(this.name).subscribe(function (data) { _this.membersInCity = data.json(); console.log(_this.membersInCity); }, function (err) { console.log('Error : ' + err); });
     };
     GetByNameComponent.prototype.clone = function (object) {
         // hack

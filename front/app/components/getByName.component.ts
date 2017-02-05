@@ -23,25 +23,20 @@ export class GetByNameComponent  {
     name = '';
     danger = '';
     result = '';
+    city = '';
+    membersInCity : Array<Member>;
     find(event: Event){
         event.preventDefault();
 
         console.log(this.name);
 
         this.anchestryService.getAnchestreByName( this.name).subscribe(
-            (res: Response) => {
 
-                this.result = JSON.stringify(res);
+            data => {this.membersInCity = data.json(); console.log(this.membersInCity)},
 
-                console.log(this.result);
-                if(this.result === ''){
-                    this.danger  = 'Sorry Person doesn\'t exist in the KD';
-                }else{
-                    this.danger = '';
-                }
-            },
-            //console.log(result);
             err => { console.log('Error : ' + err) }
+            //console.log(result);
+
         );
 
     }

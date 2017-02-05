@@ -69,7 +69,7 @@ public class AnchestryService {
 	}
 	
 	@RequestMapping(value="/get/couples", method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public @ResponseBody List<String> getCouples(){
+	public @ResponseBody List<String> getCouples(){  
 		
 		
 		List<String> data = new ArrayList<String>();

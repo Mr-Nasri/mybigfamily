@@ -20,390 +20,71 @@
     </owl:inverseOf>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasEmail"/>
-  <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasSpouse">
-    <owl:inverseOf rdf:resource="http://familytree/member/ns/hasSpouse"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasPhone"/>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasProfession"/>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasFistName"/>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasGender"/>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/liveIn"/>
-  <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasSibling">
-    <owl:inverseOf rdf:resource="http://familytree/member/ns/hasSibling"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="http://familytree/member/ns/hasLastName"/>
-  <f:Family rdf:about="http://familytree/ee08872b-0754-4c04-94e9-68d364b95abb">
-    <f:hasCreator>
-      <m:Member rdf:about="http://familytree/person/ahmedmsellek">
-        <m:hasFistName>ahmed</m:hasFistName>
-        <m:hasLastName>msellek</m:hasLastName>
-        <m:hasBirthDate>26/03/0091</m:hasBirthDate>
-        <m:liveIn>nice</m:liveIn>
+  <owl:SymmetricProperty rdf:about="http://familytree/member/ns/hasSibling">
+    <owl:inverseOf rdf:resource="http://familytree/member/ns/hasSibling"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:about="http://familytree/member/ns/hasSpouse">
+    <owl:inverseOf rdf:resource="http://familytree/member/ns/hasSpouse"/>
+  </owl:SymmetricProperty>
+  <f:Family rdf:about="http://familytree/c8884a9c-2387-43fa-bfdc-9e301fd052fe">
+    <f:hasMember>
+      <m:Member rdf:about="http://familytree/person/achrafnasri">
         <m:hasProfession>student</m:hasProfession>
+        <m:hasBirthDate>21/04/0092</m:hasBirthDate>
         <m:hasPhone>1234567890</m:hasPhone>
-        <m:hasEmail>ahmed.msellek@test.com</m:hasEmail>
         <m:hasGender>M</m:hasGender>
-      </m:Member>
-    </f:hasCreator>
-    <f:hasId>ee08872b-0754-4c04-94e9-68d364b95abb</f:hasId>
-    <f:hasName>msellek</f:hasName>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/medmsellek">
-        <m:hasFistName>med</m:hasFistName>
-        <m:hasLastName>msellek</m:hasLastName>
-        <m:hasSibling rdf:resource="http://familytree/person/ahmedmsellek"/>
-        <m:hasProfession>student</m:hasProfession>
-        <m:hasPhone>122342346</m:hasPhone>
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:liveIn>paris</m:liveIn>
-        <m:hasGender>M</m:hasGender>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/zakariamsellek">
-        <m:hasParent rdf:resource="http://familytree/person/ahmedmsellek"/>
-        <m:liveIn>lyon</m:liveIn>
-        <m:hasProfession>teacher</m:hasProfession>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:hasPhone>122342346</m:hasPhone>
-        <m:hasLastName>msellek</m:hasLastName>
-        <m:hasFistName>zakaria</m:hasFistName>
-        <m:hasGender>M</m:hasGender>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/najatayoub">
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasPhone>87654321</m:hasPhone>
-        <m:hasFistName>najat</m:hasFistName>
-        <m:hasGender>M</m:hasGender>
-        <m:hasSpouse rdf:resource="http://familytree/person/zakariamsellek"/>
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:hasProfession>teacher</m:hasProfession>
-        <m:liveIn>lyon</m:liveIn>
-        <m:hasLastName>ayoub</m:hasLastName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/oumamamsellek">
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:hasPhone>87654321</m:hasPhone>
-        <m:hasProfession>ingineer</m:hasProfession>
-        <m:hasLastName>msellek</m:hasLastName>
-        <m:hasGender>F</m:hasGender>
-        <m:hasChild rdf:resource="http://familytree/person/zakariamsellek"/>
-        <m:hasFistName>oumama</m:hasFistName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:liveIn>nice</m:liveIn>
-      </m:Member>
-    </f:hasMember>
-  </f:Family>
-  <f:Family rdf:about="http://familytree/02d3155b-b4cb-4b69-acea-8e4b2d1c8c23">
-    <f:hasCreator>
-      <m:Member rdf:about="http://familytree/person/DD">
-        <m:hasFistName>D</m:hasFistName>
-        <m:hasLastName>D</m:hasLastName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:liveIn>paris</m:liveIn>
-        <m:hasProfession>teacher</m:hasProfession>
-        <m:hasPhone>098765432</m:hasPhone>
-        <m:hasEmail>test.r@test.com</m:hasEmail>
-        <m:hasGender>M</m:hasGender>
-      </m:Member>
-    </f:hasCreator>
-    <f:hasId>02d3155b-b4cb-4b69-acea-8e4b2d1c8c23</f:hasId>
-    <f:hasName>D</f:hasName>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/AA">
-        <m:hasProfession>student</m:hasProfession>
-        <m:hasFistName>A</m:hasFistName>
-        <m:hasLastName>A</m:hasLastName>
-        <m:hasGender>M</m:hasGender>
-        <m:hasPhone>98765432</m:hasPhone>
-        <m:hasChild rdf:resource="http://familytree/person/DD"/>
-        <m:hasEmail>testr@test.com</m:hasEmail>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:liveIn>nice</m:liveIn>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/BBBB">
-        <m:hasProfession>engineer</m:hasProfession>
-        <m:hasPhone>876543</m:hasPhone>
-        <m:hasFistName>BB</m:hasFistName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasGender>F</m:hasGender>
-        <m:hasEmail>testg@test.com</m:hasEmail>
-        <m:hasChild rdf:resource="http://familytree/person/DD"/>
-        <m:liveIn>lyon</m:liveIn>
-        <m:hasLastName>BB</m:hasLastName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/CCCC">
-        <m:hasFistName>CC</m:hasFistName>
-        <m:hasEmail>testf@test.com</m:hasEmail>
-        <m:hasGender>F</m:hasGender>
-        <m:hasProfession>noone</m:hasProfession>
-        <m:liveIn>nice</m:liveIn>
-        <m:hasLastName>CC</m:hasLastName>
-        <m:hasSpouse rdf:resource="http://familytree/person/AA"/>
-        <m:hasPhone>9876543</m:hasPhone>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/FFFF">
-        <m:liveIn>paris</m:liveIn>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasLastName>FF</m:hasLastName>
-        <m:hasPhone>98765432</m:hasPhone>
-        <m:hasChild rdf:resource="http://familytree/person/AA"/>
-        <m:hasEmail>testc@test.com</m:hasEmail>
-        <m:hasProfession>test</m:hasProfession>
-        <m:hasFistName>FF</m:hasFistName>
-        <m:hasGender>M</m:hasGender>
-      </m:Member>
-    </f:hasMember>
-  </f:Family>
-  <f:Family rdf:about="http://familytree/74b7389f-3f80-43b5-9226-d0173d0a4226">
-    <f:hasCreator>
-      <m:Member rdf:about="http://familytree/person/testtest">
-        <m:hasFistName>test</m:hasFistName>
-        <m:hasLastName>test</m:hasLastName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:liveIn>nice</m:liveIn>
-        <m:hasProfession>test</m:hasProfession>
-        <m:hasPhone>8765432</m:hasPhone>
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:hasGender>M</m:hasGender>
-      </m:Member>
-    </f:hasCreator>
-    <f:hasId>74b7389f-3f80-43b5-9226-d0173d0a4226</f:hasId>
-    <f:hasName>test</f:hasName>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/dddd">
-        <m:hasEmail>test@test.com</m:hasEmail>
-        <m:hasFistName>dd</m:hasFistName>
-        <m:hasLastName>dd</m:hasLastName>
-        <m:hasProfession>hola</m:hasProfession>
-        <m:liveIn>paris</m:liveIn>
-        <m:hasPhone>98765432</m:hasPhone>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasChild rdf:resource="http://familytree/person/testtest"/>
-        <m:hasGender>F</m:hasGender>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/qqqq">
-        <m:liveIn>lyon</m:liveIn>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasPhone>654321</m:hasPhone>
-        <m:hasFistName>qq</m:hasFistName>
-        <m:hasGender>M</m:hasGender>
-        <m:hasLastName>qq</m:hasLastName>
-        <m:hasEmail>tes2t@test.com</m:hasEmail>
-        <m:hasSibling rdf:resource="http://familytree/person/dddd"/>
-        <m:hasProfession>dzsd</m:hasProfession>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/RRRR">
-        <m:hasSpouse rdf:resource="http://familytree/person/dddd"/>
-        <m:liveIn>tokyo</m:liveIn>
-        <m:hasLastName>RR</m:hasLastName>
-        <m:hasEmail>test.r@test.com</m:hasEmail>
-        <m:hasGender>F</m:hasGender>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasFistName>RR</m:hasFistName>
-        <m:hasPhone>0987654321</m:hasPhone>
-        <m:hasProfession>test</m:hasProfession>
-      </m:Member>
-    </f:hasMember>
-  </f:Family>
-  <f:Family rdf:about="http://familytree/9f698672-acf4-4cf0-b66b-5875021b9b53">
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/tom2tom2">
-        <m:hasEmail>tomn@tom.com</m:hasEmail>
-        <m:hasLastName>tom2</m:hasLastName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasGender>M</m:hasGender>
-        <m:liveIn>nice</m:liveIn>
-        <m:hasParent>
-          <m:Member rdf:about="http://familytree/person/jackjack">
-            <m:hasFistName>jack</m:hasFistName>
-            <m:hasProfession>jack</m:hasProfession>
-            <m:liveIn>lyon</m:liveIn>
-            <m:hasEmail>jack@jack.com</m:hasEmail>
-            <m:hasPhone>8765432</m:hasPhone>
-            <m:hasParent>
-              <m:Member rdf:about="http://familytree/person/jhonjhon">
-                <m:hasFistName>jhon</m:hasFistName>
-                <m:hasLastName>jhon</m:hasLastName>
-                <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-                <m:liveIn>paris</m:liveIn>
-                <m:hasProfession>paris</m:hasProfession>
-                <m:hasPhone>0987654321</m:hasPhone>
-                <m:hasEmail>jhon@jhon.com</m:hasEmail>
-                <m:hasGender>M</m:hasGender>
-              </m:Member>
-            </m:hasParent>
-            <m:hasLastName>jack</m:hasLastName>
-            <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-            <m:hasGender>M</m:hasGender>
-          </m:Member>
-        </m:hasParent>
-        <m:hasFistName>tom2</m:hasFistName>
-        <m:hasPhone>65432</m:hasPhone>
-        <m:hasProfession>tom2</m:hasProfession>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/tomtom">
-        <m:hasChild rdf:resource="http://familytree/person/jackjack"/>
-        <m:hasPhone>8765432</m:hasPhone>
-        <m:hasProfession>tom</m:hasProfession>
-        <m:hasGender>M</m:hasGender>
-        <m:hasEmail>tom@tom.com</m:hasEmail>
-        <m:liveIn>lyon</m:liveIn>
-        <m:hasFistName>tom</m:hasFistName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasLastName>tom</m:hasLastName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/mariemarie">
-        <m:hasGender>F</m:hasGender>
-        <m:hasPhone>98765432</m:hasPhone>
-        <m:hasSibling rdf:resource="http://familytree/person/jackjack"/>
-        <m:hasProfession>marie</m:hasProfession>
-        <m:liveIn>paris</m:liveIn>
-        <m:hasEmail>marie@marie.com</m:hasEmail>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasFistName>marie</m:hasFistName>
-        <m:hasLastName>marie</m:hasLastName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasCreator rdf:resource="http://familytree/person/jhonjhon"/>
-    <f:hasId>9f698672-acf4-4cf0-b66b-5875021b9b53</f:hasId>
-    <f:hasName>jhon</f:hasName>
-    <f:hasMember rdf:resource="http://familytree/person/jackjack"/>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/robertrobert">
-        <m:hasProfession>robert</m:hasProfession>
-        <m:hasSibling rdf:resource="http://familytree/person/jackjack"/>
-        <m:hasGender>M</m:hasGender>
-        <m:hasEmail>robert@robert.com</m:hasEmail>
-        <m:liveIn>paris</m:liveIn>
-        <m:hasFistName>robert</m:hasFistName>
-        <m:hasLastName>robert</m:hasLastName>
-        <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-        <m:hasPhone>9876543</m:hasPhone>
-      </m:Member>
-    </f:hasMember>
-  </f:Family>
-  <f:Family rdf:about="http://familytree/948cd058-c006-4a50-a5ff-442965907e9d">
-    <f:hasId>948cd058-c006-4a50-a5ff-442965907e9d</f:hasId>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/aacfaaal">
-        <m:hasGender>F</m:hasGender>
-        <m:hasBirthDate>26/04/1998</m:hasBirthDate>
-        <m:liveIn>Paris</m:liveIn>
-        <m:hasLastName>aaal</m:hasLastName>
-        <m:hasParent>
-          <m:Member rdf:about="http://familytree/person/aabfaaal">
-            <m:hasProfession>Student</m:hasProfession>
-            <m:liveIn>Nice</m:liveIn>
-            <m:hasLastName>aaal</m:hasLastName>
-            <m:hasPhone>0123456787654</m:hasPhone>
-            <m:hasGender>M</m:hasGender>
-            <m:hasEmail>aabf@a.a</m:hasEmail>
-            <m:hasFistName>aabf</m:hasFistName>
-            <m:hasBirthDate>01/10/2000</m:hasBirthDate>
+        <m:hasFistName>achraf</m:hasFistName>
+        <m:hasLastName>nasri</m:hasLastName>
+        <m:hasChild>
+          <m:Member rdf:about="http://familytree/person/medmsellek">
+            <m:hasPhone>98765432</m:hasPhone>
+            <m:hasFistName>med</m:hasFistName>
+            <m:hasEmail>med@test.com</m:hasEmail>
+            <m:hasLastName>msellek</m:hasLastName>
             <m:hasSibling>
-              <m:Member rdf:about="http://familytree/person/aaafaaal">
+              <m:Member rdf:about="http://familytree/person/ahmedmsellek">
                 <m:hasGender>M</m:hasGender>
-                <m:hasEmail>aaaf@a.a</m:hasEmail>
-                <m:hasPhone>0123456789</m:hasPhone>
-                <m:hasProfession>Student</m:hasProfession>
-                <m:liveIn>Nice</m:liveIn>
-                <m:hasBirthDate>01/10/1990</m:hasBirthDate>
-                <m:hasLastName>aaal</m:hasLastName>
-                <m:hasFistName>aaaf</m:hasFistName>
+                <m:hasEmail>ahmed@test.com</m:hasEmail>
+                <m:hasPhone>098765432</m:hasPhone>
+                <m:hasProfession>student</m:hasProfession>
+                <m:liveIn>nice</m:liveIn>
+                <m:hasBirthDate>26/03/0091</m:hasBirthDate>
+                <m:hasLastName>msellek</m:hasLastName>
+                <m:hasFistName>ahmed</m:hasFistName>
               </m:Member>
             </m:hasSibling>
+            <m:liveIn>madrid</m:liveIn>
+            <m:hasProfession>student</m:hasProfession>
+            <m:hasGender>M</m:hasGender>
+            <m:hasBirthDate>22/02/0098</m:hasBirthDate>
           </m:Member>
-        </m:hasParent>
-        <m:hasFistName>aacf</m:hasFistName>
-        <m:hasProfession>Student</m:hasProfession>
-        <m:hasPhone>0621344534234</m:hasPhone>
-        <m:hasEmail>aaal@a.a</m:hasEmail>
+        </m:hasChild>
+        <m:liveIn>nice</m:liveIn>
+        <m:hasEmail>nasri@achraf.com</m:hasEmail>
       </m:Member>
     </f:hasMember>
     <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/sistersister">
-        <m:hasSibling>
-          <m:Member rdf:about="http://familytree/person/parentparent">
-            <m:hasChild>
-              <m:Member rdf:about="http://familytree/person/aaefaaal">
-                <m:hasGender>M</m:hasGender>
-                <m:hasProfession>test</m:hasProfession>
-                <m:hasEmail>aaef@a.a</m:hasEmail>
-                <m:hasFistName>aaef</m:hasFistName>
-                <m:hasBirthDate>01/01/1970</m:hasBirthDate>
-                <m:hasLastName>aaal</m:hasLastName>
-                <m:hasPhone>054838373765</m:hasPhone>
-                <m:hasParent>
-                  <m:Member rdf:about="http://familytree/person/aadfaaal">
-                    <m:liveIn>Madrid</m:liveIn>
-                    <m:hasParent rdf:resource="http://familytree/person/aabfaaal"/>
-                    <m:hasProfession>Professor</m:hasProfession>
-                    <m:hasBirthDate>01/01/1940</m:hasBirthDate>
-                    <m:hasGender>M</m:hasGender>
-                    <m:hasPhone>051243545</m:hasPhone>
-                    <m:hasFistName>aadf</m:hasFistName>
-                    <m:hasLastName>aaal</m:hasLastName>
-                    <m:hasEmail>aadf@a.a</m:hasEmail>
-                  </m:Member>
-                </m:hasParent>
-                <m:liveIn>Tokyo</m:liveIn>
-              </m:Member>
-            </m:hasChild>
-            <m:hasLastName>parent</m:hasLastName>
-            <m:hasFistName>parent</m:hasFistName>
-          </m:Member>
-        </m:hasSibling>
-        <m:hasGender>F</m:hasGender>
-        <m:hasLastName>sister</m:hasLastName>
-        <m:hasFistName>sister</m:hasFistName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember rdf:resource="http://familytree/person/aaefaaal"/>
-    <f:hasCreator rdf:resource="http://familytree/person/aaafaaal"/>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/grandparent">
-        <m:hasChild rdf:resource="http://familytree/person/parentparent"/>
+      <m:Member rdf:about="http://familytree/person/zakmsellek">
+        <m:hasPhone>0987654321</m:hasPhone>
+        <m:hasFistName>zak</m:hasFistName>
         <m:hasGender>M</m:hasGender>
-        <m:hasLastName>parent</m:hasLastName>
-        <m:hasFistName>grand</m:hasFistName>
+        <m:hasBirthDate>17/02/0060</m:hasBirthDate>
+        <m:liveIn>paris</m:liveIn>
+        <m:hasLastName>msellek</m:hasLastName>
+        <m:hasProfession>teacher</m:hasProfession>
+        <m:hasParent rdf:resource="http://familytree/person/ahmedmsellek"/>
+        <m:hasEmail>zak@test.com</m:hasEmail>
       </m:Member>
     </f:hasMember>
-    <f:hasMember rdf:resource="http://familytree/person/aadfaaal"/>
-    <f:hasMember rdf:resource="http://familytree/person/aabfaaal"/>
-    <f:hasMember>
-      <m:Member rdf:about="http://familytree/person/brotherbrother">
-        <m:hasSibling rdf:resource="http://familytree/person/parentparent"/>
-        <m:hasGender>M</m:hasGender>
-        <m:hasEmail>a@a.a</m:hasEmail>
-        <m:hasLastName>brother</m:hasLastName>
-        <m:hasFistName>brother</m:hasFistName>
-      </m:Member>
-    </f:hasMember>
-    <f:hasMember rdf:resource="http://familytree/person/parentparent"/>
-    <f:hasName>aaal</f:hasName>
+    <f:hasMember rdf:resource="http://familytree/person/medmsellek"/>
+    <f:hasName>msellek</f:hasName>
+    <f:hasId>c8884a9c-2387-43fa-bfdc-9e301fd052fe</f:hasId>
+    <f:hasCreator rdf:resource="http://familytree/person/ahmedmsellek"/>
   </f:Family>
 </rdf:RDF>

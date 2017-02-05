@@ -99,19 +99,19 @@
     <f:hasName>Ernest Louis of_Hesse</f:hasName>
   </f:Family>
   <f:Family rdf:about="http://familytree/5afda724-828b-45da-9901-04223bb6ebe5">
-    <f:hasName>Francis  </f:hasName>
+    <f:hasName>Francis</f:hasName>
     <f:hasId>5afda724-828b-45da-9901-04223bb6ebe5</f:hasId>
     <f:hasMember>
       <m:Member rdf:about="http://familytree/person/Mary Adelaide &quot;Fat_Mary&quot;">
         <m:hasSpouse rdf:resource="http://familytree/person/Francis"/>
         <m:hasGender>F</m:hasGender>
-        <m:hasFistName>Mary Adelaide "Fat_Mary"</m:hasFistName>
+        <m:hasFistName>Mary Adelaide</m:hasFistName>
       </m:Member>
     </f:hasMember>
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Francis  ">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Francis  </m:hasFistName>
+        <m:hasFistName>Francis</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
@@ -128,7 +128,7 @@
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Louis_III of_Hesse ">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Louis_III of_Hesse </m:hasFistName>
+        <m:hasFistName>Louis III of Hesse</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
@@ -145,7 +145,7 @@
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Sven I von D�nemark">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Sven I von D�nemark</m:hasFistName>
+        <m:hasFistName>Sven I von Danemark</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
@@ -162,7 +162,7 @@
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Louis_II of_Hesse and_the_Rhine">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Louis_II of_Hesse and_the_Rhine</m:hasFistName>
+        <m:hasFistName>Louis II of Hesse</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
@@ -264,7 +264,7 @@
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Pierre Fran�oisDUPONT">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Pierre Fran�oisDUPONT</m:hasFistName>
+        <m:hasFistName>Pierre Francois DUPONT</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
@@ -307,7 +307,7 @@
     <f:hasId>2e973a8c-2a00-4d16-a96a-ec031e2dc81e</f:hasId>
     <f:hasMember>
       <m:Member rdf:about="http://familytree/person/Margaret  Holland">
-        <m:hasFistName>Margaret  Holland</m:hasFistName>
+        <m:hasFistName>Margaret Holland</m:hasFistName>
         <m:hasGender>F</m:hasGender>
         <m:hasSpouse rdf:resource="http://familytree/person/JohnBeaufort"/>
       </m:Member>
@@ -464,7 +464,7 @@
     <f:hasCreator>
       <m:Member rdf:about="http://familytree/person/Jim  Noble">
         <m:hasGender>M</m:hasGender>
-        <m:hasFistName>Jim  Noble</m:hasFistName>
+        <m:hasFistName>Jim Noble</m:hasFistName>
       </m:Member>
     </f:hasCreator>
   </f:Family>
